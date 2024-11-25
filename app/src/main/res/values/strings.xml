@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">UrKins</string>
+    <string name="app_logo">App Logo</string>
+    <string name="app_logo_dua">App Logo dua</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Account</string>
