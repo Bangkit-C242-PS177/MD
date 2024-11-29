@@ -12,4 +12,5 @@
     <string name="bd_tiga_title">Start Your Face Analysis</string>
     <string name="bd_tiga_text">Take a photo of your face and let us do an in-depth analysis. Find products designed specifically for your skin type and start your journey to healthier skin. Click Get Started to continue.</string>
     <string name="get_started">Get Started</string>
+    <string name="onboarding_image">onboarding image</string>
 </resources>

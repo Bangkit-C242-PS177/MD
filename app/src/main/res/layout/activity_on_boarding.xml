@@ -5,16 +5,192 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal"
     app:layoutDescription="@xml/activity_on_boarding_scene"
     tools:context=".ui.onboarding.OnBoardingActivity">
 
+    <ImageView
+        android:id="@+id/img_bd1"
+        android:layout_width="314dp"
+        android:layout_height="307dp"
+        android:contentDescription="@string/onboarding_image"
+        android:src="@drawable/bd1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:id="@+id/title_bd1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center_horizontal"
+        android:text="@string/bd_satu_title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_bd1"
+        app:layout_constraintStart_toStartOf="@+id/img_bd1"
+        app:layout_constraintTop_toBottomOf="@+id/img_bd1" />
+
+    <TextView
+        android:id="@+id/text_bd1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/afacad"
+        android:gravity="center_horizontal"
+        android:text="@string/bd_satu_text"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/title_bd1"
+        app:layout_constraintStart_toStartOf="@+id/title_bd1"
+        app:layout_constraintTop_toBottomOf="@+id/title_bd1" />
+
+    <ImageView
+        android:id="@+id/img_bd2"
+        android:layout_width="278.93dp"
+        android:layout_height="307dp"
+        android:contentDescription="@string/onboarding_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        android:src="@drawable/bd2" />
+
+    <TextView
+        android:id="@+id/title_bd2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_bd2"
+        app:layout_constraintStart_toStartOf="@+id/img_bd2"
+        app:layout_constraintTop_toBottomOf="@+id/img_bd2"
+        android:text="@string/bd_dua_title" />
+
+    <TextView
+        android:id="@+id/text_bd2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/afacad"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/title_bd2"
+        app:layout_constraintStart_toStartOf="@+id/title_bd2"
+        app:layout_constraintTop_toBottomOf="@+id/title_bd2"
+        android:text="@string/bd_dua_text" />
+
+    <ImageView
+        android:id="@+id/img_bd3"
+        android:layout_width="314dp"
+        android:layout_height="310.34dp"
+        android:contentDescription="@string/onboarding_image"
+        android:src="@drawable/bd3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/title_bd3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_bd3"
+        app:layout_constraintStart_toStartOf="@+id/img_bd3"
+        app:layout_constraintTop_toBottomOf="@+id/img_bd3"
+        android:text="@string/bd_tiga_title" />
+
+    <TextView
+        android:id="@+id/text_bd3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/afacad"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/title_bd3"
+        app:layout_constraintStart_toStartOf="@+id/title_bd3"
+        app:layout_constraintTop_toBottomOf="@+id/title_bd3"
+        android:text="@string/bd_tiga_text" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/bd1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        app:altSrc="@drawable/ic_circle_fill"
+        app:layout_constraintEnd_toStartOf="@+id/bd2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_circle"
+        app:tint="@color/pink" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/bd2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:altSrc="@drawable/ic_circle_fill"
+        app:layout_constraintBottom_toBottomOf="@+id/bd1"
+        app:layout_constraintEnd_toStartOf="@+id/bd3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bd1"
+        app:layout_constraintTop_toTopOf="@+id/bd1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_circle"
+        app:tint="@color/pink" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/bd3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:altSrc="@drawable/ic_circle_fill"
+        app:layout_constraintBottom_toBottomOf="@+id/bd2"
+        app:layout_constraintEnd_toStartOf="@+id/parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bd2"
+        app:layout_constraintTop_toTopOf="@+id/bd2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_circle"
+        app:tint="@color/pink" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:alpha="0"
+        android:backgroundTint="@color/pink"
+        android:text="@string/get_started"
+        app:layout_constraintBottom_toTopOf="@+id/bd2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/parent" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/app_logo_dua"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_dua"
+        tools:ignore="ImageContrastCheck" />
 </androidx.constraintlayout.motion.widget.MotionLayout>
