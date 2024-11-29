@@ -1,11 +1,15 @@
 package com.example.urkins.ui.splashscreen
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.urkins.R
+import com.example.urkins.ui.onboarding.OnBoardingActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,5 +22,11 @@ class SplashScreenActivity : AppCompatActivity() {
             insets
         }
         supportActionBar?.hide()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this@SplashScreenActivity, OnBoardingActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 3000)
     }
 }

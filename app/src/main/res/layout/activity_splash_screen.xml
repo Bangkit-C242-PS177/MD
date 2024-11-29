@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/iv_app_logo_satu"
-        android:layout_width="157dp"
-        android:layout_height="123dp"
+        android:layout_width="190dp"
+        android:layout_height="160dp"
         android:contentDescription="@string/app_logo"
         android:scaleType="centerCrop"
         android:src="@drawable/logo_satu"
@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/iv_app_logo_dua"
-        android:layout_width="88dp"
-        android:layout_height="32dp"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="252dp"
         android:contentDescription="@string/app_logo_dua"
         android:src="@drawable/logo_dua"
