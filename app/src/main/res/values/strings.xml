@@ -5,4 +5,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Account</string>
+    <string name="bd_satu_title">Find the Right Skincare Product</string>
+    <string name="bd_satu_text">Welcome to UrKins! We are here to help you find the right skincare products for your skin type. Get personalized recommendations for healthy, glowing skin.</string>
+    <string name="bd_dua_title">Match Skincare to Your Skin Needs</string>
+    <string name="bd_dua_text">We analyze your skins needs to recommend the most suitable products. From cleansers to moisturizers, we are here to make sure your skin gets the best care.</string>
+    <string name="bd_tiga_title">Start Your Face Analysis</string>
+    <string name="bd_tiga_text">Take a photo of your face and let us do an in-depth analysis. Find products designed specifically for your skin type and start your journey to healthier skin. Click Get Started to continue.</string>
+    <string name="get_started">Get Started</string>
 </resources>
