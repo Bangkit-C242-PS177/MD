@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.urkins.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_analyze"
+        android:name="com.example.urkins.ui.analyze.AnalyzeFragment"
+        android:label="@string/title_analyze"
+        tools:layout="@layout/fragment_analyze" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.urkins.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_user"
+        android:name="com.example.urkins.ui.user.UserFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_user" />
 </navigation>
