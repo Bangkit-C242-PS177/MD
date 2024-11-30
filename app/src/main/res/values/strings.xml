@@ -3,8 +3,8 @@
     <string name="app_logo">App Logo</string>
     <string name="app_logo_dua">App Logo dua</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Account</string>
+    <string name="title_analyze">Analyze</string>
+    <string name="title_user">User</string>
     <string name="bd_satu_title">Find the Right Skincare Product</string>
     <string name="bd_satu_text">Welcome to UrKins! We are here to help you find the right skincare products for your skin type. Get personalized recommendations for healthy, glowing skin.</string>
     <string name="bd_dua_title">Match Skincare to Your Skin Needs</string>
@@ -13,4 +13,10 @@
     <string name="bd_tiga_text">Take a photo of your face and let us do an in-depth analysis. Find products designed specifically for your skin type and start your journey to healthier skin. Click Get Started to continue.</string>
     <string name="get_started">Get Started</string>
     <string name="onboarding_image">onboarding image</string>
+    <string name="article_title">Article title\n</string>
+    <string name="published_date">Published date</string>
+    <string name="author">Author</string>
+    <string name="analyze_date">Analyzed date</string>
+    <string name="analyze_result">Analyze result</string>
+    <string name="delete">Delete</string>
 </resources>
