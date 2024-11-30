@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.UrKins" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.UrKins" parent="Theme.MaterialComponents.DayNight">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/pink</item>
         <item name="colorOnPrimary">@color/teal</item>
