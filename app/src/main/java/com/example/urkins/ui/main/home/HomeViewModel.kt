@@ -1,4 +1,4 @@
-package com.example.urkins.ui.home
+package com.example.urkins.ui.main.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.example.urkins.ui.home
+package com.example.urkins.ui.main.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
