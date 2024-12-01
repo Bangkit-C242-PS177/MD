@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/teal"
     app:layoutDescription="@xml/activity_on_boarding_scene"
-    tools:context=".ui.onboarding.OnBoardingActivity">
+    tools:context=".ui.activity.onboarding.OnBoardingActivity">
 
     <ImageView
         android:id="@+id/img_bd1"
@@ -182,13 +182,17 @@
         android:layout_marginBottom="32dp"
         android:alpha="0"
         android:backgroundTint="@color/pink"
+        android:fontFamily="@font/afacad"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:text="@string/get_started"
         app:layout_constraintBottom_toTopOf="@+id/bd2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/parent" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageView"
+        android:id="@+id/app_logo"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:contentDescription="@string/app_logo_dua"

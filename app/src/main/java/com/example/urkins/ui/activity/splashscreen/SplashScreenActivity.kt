@@ -1,4 +1,4 @@
-package com.example.urkins.ui.splashscreen
+package com.example.urkins.ui.activity.splashscreen
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.urkins.R
-import com.example.urkins.ui.onboarding.OnBoardingActivity
+import com.example.urkins.ui.activity.onboarding.OnBoardingActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

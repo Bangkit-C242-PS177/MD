@@ -1,4 +1,4 @@
-package com.example.urkins.ui.onboarding
+package com.example.urkins.ui.activity.onboarding
 
 import android.content.Intent
 import android.os.Build

@@ -5,6 +5,9 @@
     <color name="soft_pink">#E8C5E5</color>
     <color name="pink">#F19ED2</color>
     <color name="combo">#FF018786</color>
+    <color name="gray">#D9D9D9</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="overlayColor">#80000000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

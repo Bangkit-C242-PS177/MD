@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal"
-    tools:context=".ui.splashscreen.SplashScreenActivity">
+    tools:context=".ui.activity.splashscreen.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/iv_app_logo_satu"
