@@ -1,4 +1,4 @@
-package com.example.urkins.ui.user
+package com.example.urkins.ui.main.user
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
