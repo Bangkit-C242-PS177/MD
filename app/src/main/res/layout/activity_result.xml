@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal"
+    tools:context=".ui.activity.result.ResultActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="66dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/app_logo"
+            android:src="@drawable/logo_dua"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.907"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/result_image"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="80dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_place_holder"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/pink"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/result_image">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/result_skin_condition_text"
+                    android:layout_width="195dp"
+                    android:layout_height="58dp"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/afacad"
+                    android:padding="5dp"
+                    android:text="@string/skin_condition_result"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/result_skin_type_text"
+                    android:layout_width="180dp"
+                    android:layout_height="58dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/afacad"
+                    android:padding="5dp"
+                    android:text="@string/skin_type_result"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/result_skin_condition_text"
+                    app:layout_constraintTop_toTopOf="@+id/result_skin_condition_text" />
+
+                <TextView
+                    android:id="@+id/analyze_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/afacad"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="@string/analyze_description"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/result_skin_type_text"
+                    app:layout_constraintStart_toStartOf="@+id/result_skin_condition_text"
+                    app:layout_constraintTop_toBottomOf="@+id/result_skin_condition_text"
+                    tools:ignore="TextSizeCheck" />
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/white"
+                    android:text="@string/save"
+                    android:textColor="@color/black"
+                    app:icon="@drawable/ic_save"
+                    app:iconTint="@color/black"
+                    app:layout_constraintEnd_toEndOf="@+id/analyze_description"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/analyze_description"
+                    app:layout_constraintTop_toBottomOf="@+id/analyze_description"
+                    tools:ignore="TextContrastCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/background_banner_skincare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:background="@color/soft_pink"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_result">
+
+            <Button
+                android:id="@+id/btn_skincare_recommendation"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/afacad"
+                android:text="@string/btn_skincare_recommendation"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/white"
+                app:icon="@drawable/ic_skincare"
+                app:iconSize="24dp"
+                app:iconTint="@android:color/primary_text_light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_banner_skincare_text_recommend"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_banner_skincare_text_recommend" />
+
+            <ImageView
+                android:id="@+id/iv_banner_skincare_recommendation"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:contentDescription="@string/iv_banner_skincare_recommendation"
+                android:src="@drawable/result_img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_banner_skincare_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/afacad"
+                android:text="@string/banner_skincare_text"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_skincare_recommendation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/iv_banner_skincare_recommendation"
+                app:layout_constraintTop_toTopOf="@+id/iv_banner_skincare_recommendation"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/tv_banner_skincare_text_recommend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/afacad"
+                android:text="@string/banner_skincare_recommend_text"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_banner_skincare_text"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_banner_skincare_text"
+                tools:ignore="TextContrastCheck"
+                tools:layout_editor_absoluteY="106dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
