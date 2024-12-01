@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,13 +16,28 @@
         android:theme="@style/Theme.UrKins"
         tools:targetApi="31">
         <activity
-            android:name=".ui.onboarding.OnBoardingActivity"
+            android:name=".ui.activity.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.result.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.camera.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.onboarding.OnBoardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.setting.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.splashscreen.SplashScreenActivity"
+            android:name=".ui.activity.splashscreen.SplashScreenActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
