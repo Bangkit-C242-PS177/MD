@@ -52,10 +52,10 @@
     <string name="skin_condition_result">Skin condition analyze result</string>
     <string name="skin_type_result">Skin type analyze result</string>
     <string name="save">Save</string>
-    <string name="analyze_description">Your skin condition is %1$s and your skin type is %1$s</string>
+    <string name="analyze_description">Based on our analysis, your current skin condition is %1$s, and your skin type falls under the category of %1$s. Understanding your skin is the first step to unlocking a personalized skincare routine that works just for you!</string>
     <string name="btn_skincare_recommendation">Skincare recommendation</string>
     <string name="iv_banner_skincare_recommendation">Banner skincare recommendation</string>
-    <string name="banner_skincare_text">We analyze your skins needs to recommend the most suitable products</string>
+    <string name="banner_skincare_text">We analyze your skins needs to recommend the most suitable products for you</string>
     <string name="banner_skincare_recommend_text">Start your beauty plan!</string>
     <string name="register">Register</string>
     <string name="register_text">Dont have an account? Register</string>
@@ -65,4 +65,17 @@
     <string name="register_description">Create your account</string>
     <string name="login">Login</string>
     <string name="login_text">Already have an account? Login</string>
+    <string name="welcome">Welcome to urkins,</string>
+    <string name="banner_home_title">These are your recent recommendation skincare</string>
+    <string name="banner_home_text">more...</string>
+    <string name="banner_article_titile">Get to know about skin</string>
+    <string name="banner_article_text">Reveal the true beauty of who you are</string>
+    <string name="recommend_skincare_text">Suggested profucts based on your current skin issues</string>
+    <string name="product_name">Product name</string>
+    <string name="title_product_description">Description</string>
+    <string name="product_desription">Product desription</string>
+    <string name="title_how_to_use">How To Use</string>
+    <string name="how_to_use_text">Step of using the product</string>
+    <string name="title_product_ingredient">Ingredients</string>
+    <string name="product_ingredient_text">will be the ingredients</string>
 </resources>

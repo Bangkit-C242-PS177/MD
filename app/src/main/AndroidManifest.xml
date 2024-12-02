@@ -16,6 +16,12 @@
         android:theme="@style/Theme.UrKins"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.SkincareDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.recommendskincare.SkincareRecommendationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.register.RegisterActivity"
             android:exported="false" />
         <activity

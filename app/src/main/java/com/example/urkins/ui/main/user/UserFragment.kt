@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.urkins.databinding.FragmentUserBinding
 import com.example.urkins.ui.activity.setting.SettingActivity
 
@@ -37,9 +39,27 @@ class UserFragment : Fragment() {
         return root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupAction()
+
+//        val analyzeResultAdapter = ResultAdapter { analyzeResult ->
+//            historyViewModel.removeAnalyzeResult(analyzeResult)
+//        }
+//
+//        binding.rvHistory.apply {
+//            layoutManager = GridLayoutManager(requireActivity(), 2)
+//            adapter = analyzeResultAdapter
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    requireActivity(),
+//                    GridLayoutManager(requireActivity(), 2).orientation
+//                )
+//            )
+//            setPadding(0, 0, 0, 200)
+//            clipToPadding = false
+//        }
     }
 
     private fun setupAction() {

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal"
+    tools:context=".ui.activity.SkincareDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="66dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/app_logo"
+            android:src="@drawable/logo_dua"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.96"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/back_button"
+            android:src="@drawable/btn_back"
+            app:layout_constraintEnd_toStartOf="@+id/app_logo"
+            app:layout_constraintHorizontal_bias="0.047"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RedundantDescriptionCheck" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_skincare_product_img"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="105dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_title_product_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/title_product_description"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_product_description"
+            app:layout_constraintEnd_toEndOf="@+id/iv_skincare_product_img"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="@+id/iv_skincare_product_img" />
+
+        <TextView
+            android:id="@+id/tv_product_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/afacad"
+            android:text="@string/product_desription"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_product_description"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_product_description"
+            tools:layout_editor_absoluteY="388dp" />
+
+        <TextView
+            android:id="@+id/tv_title_how_to_use"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/title_how_to_use"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_how_to_use_text"
+            app:layout_constraintEnd_toEndOf="@+id/tv_product_description"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_description" />
+
+        <TextView
+            android:id="@+id/tv_how_to_use_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/afacad"
+            android:text="@string/how_to_use_text"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_how_to_use"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_how_to_use"
+            tools:layout_editor_absoluteY="454dp" />
+
+        <TextView
+            android:id="@+id/tv_title_product_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/title_product_ingredient"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_product_ingredient_text"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_how_to_use"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_how_to_use" />
+
+        <TextView
+            android:id="@+id/tv_product_ingredient_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/afacad"
+            android:text="@string/product_ingredient_text"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_product_ingredient"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_product_ingredient"
+            tools:layout_editor_absoluteY="521dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
