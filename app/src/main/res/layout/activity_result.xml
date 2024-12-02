@@ -97,7 +97,7 @@
                     android:layout_marginStart="5dp"
                     android:fontFamily="@font/afacad"
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:text="@string/analyze_description"
                     android:textAlignment="center"
                     app:layout_constraintEnd_toEndOf="@+id/result_skin_type_text"
@@ -200,5 +200,13 @@
                 tools:layout_editor_absoluteY="106dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
