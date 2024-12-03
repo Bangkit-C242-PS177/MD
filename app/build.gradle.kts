@@ -77,4 +77,5 @@ dependencies {
 
     implementation(libs.glide)
     implementation(libs.compiler)
+    implementation("com.github.bumptech.glide:okhttp3-integration:4.16.0")
 }
