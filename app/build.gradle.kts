@@ -65,7 +65,7 @@ dependencies {
     implementation(libs.androidx.exifinterface)
 
     implementation(libs.androidx.datastore.preferences)
-    implementation("androidx.activity:activity-ktx:1.9.0")
+    implementation(libs.androidx.activity.ktx)
 
 
 }
