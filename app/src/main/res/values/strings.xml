@@ -78,4 +78,6 @@
     <string name="how_to_use_text">Step of using the product</string>
     <string name="title_product_ingredient">Ingredients</string>
     <string name="product_ingredient_text">will be the ingredients</string>
+    <string name="camera_title">Camera</string>
+    <string name="failed_take_photo">failed take photo</string>
 </resources>
