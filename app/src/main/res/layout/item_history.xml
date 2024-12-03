@@ -8,11 +8,12 @@
     app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_user_history_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivImageResultAnalyze"
+        android:id="@+id/iv_img_result_analyze"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
@@ -23,7 +24,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvAnalyzeTime"
+        android:id="@+id/tv_analyze_time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -35,10 +36,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImageResultAnalyze" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_img_result_analyze" />
 
     <TextView
-        android:id="@+id/tvAnalyzeResult"
+        android:id="@+id/tv_analyze_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -50,10 +51,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAnalyzeTime" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_analyze_time" />
 
         <Button
-            android:id="@+id/deleteBtn"
+            android:id="@+id/btn_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -68,7 +69,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAnalyzeResult"
+            app:layout_constraintTop_toBottomOf="@+id/tv_analyze_result"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="TextContrastCheck,VisualLintButtonSize" />
     </androidx.constraintlayout.widget.ConstraintLayout>

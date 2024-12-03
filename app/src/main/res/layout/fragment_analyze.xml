@@ -43,10 +43,11 @@
 
                 <TextView
                     android:id="@+id/tv_banner_analyze_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="190dp"
                     android:layout_marginTop="36dp"
+                    android:layout_marginEnd="10dp"
                     android:fontFamily="@font/aclonica"
                     android:text="@string/banner_analyze_title"
                     android:textSize="17sp"
@@ -58,9 +59,10 @@
 
                 <TextView
                     android:id="@+id/tv_banner_analyze_text"
-                    android:layout_width="147dp"
+                    android:layout_width="match_parent"
                     android:layout_height="108dp"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="190dp"
+                    android:layout_marginEnd="10dp"
                     android:fontFamily="@font/calibri"
                     android:text="@string/banner_analyze_text"
                     android:textSize="18sp"

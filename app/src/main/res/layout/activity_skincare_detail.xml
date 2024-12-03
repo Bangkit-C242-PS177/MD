@@ -9,10 +9,11 @@
     tools:context=".ui.activity.SkincareDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_skincare_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/app_logo"
+            android:id="@+id/iv_app_logo_dua"
             android:layout_width="66dp"
             android:layout_height="25dp"
             android:layout_marginTop="36dp"
@@ -31,7 +32,7 @@
             android:layout_marginTop="36dp"
             android:contentDescription="@string/back_button"
             android:src="@drawable/btn_back"
-            app:layout_constraintEnd_toStartOf="@+id/app_logo"
+            app:layout_constraintEnd_toStartOf="@+id/iv_app_logo_dua"
             app:layout_constraintHorizontal_bias="0.047"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -80,7 +81,8 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/tv_title_product_description"
             app:layout_constraintStart_toStartOf="@+id/tv_title_product_description"
-            tools:layout_editor_absoluteY="388dp" />
+            tools:layout_editor_absoluteY="388dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/tv_title_how_to_use"
@@ -110,7 +112,8 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/tv_title_how_to_use"
             app:layout_constraintStart_toStartOf="@+id/tv_title_how_to_use"
-            tools:layout_editor_absoluteY="454dp" />
+            tools:layout_editor_absoluteY="454dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/tv_title_product_ingredient"
@@ -139,7 +142,8 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/tv_title_product_ingredient"
             app:layout_constraintStart_toStartOf="@+id/tv_title_product_ingredient"
-            tools:layout_editor_absoluteY="521dp" />
+            tools:layout_editor_absoluteY="521dp"
+            tools:ignore="MissingConstraints" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

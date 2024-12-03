@@ -9,8 +9,9 @@
     tools:context=".ui.activity.register.RegisterActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="380dp"
-        android:layout_height="329dp"
+        android:id="@+id/cv_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
@@ -24,8 +25,9 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_register_description">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_register"
             android:layout_width="match_parent"
-            android:layout_height="340dp"
+            android:layout_height="wrap_content"
             android:padding="10dp"
             tools:ignore="VisualLintBounds">
 
@@ -42,7 +44,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
 
             <com.example.urkins.ui.custom.EditTextEmail
@@ -58,7 +60,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ed_register_name"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
             <com.example.urkins.ui.custom.EditTextPassword
                 android:id="@+id/ed_register_password"
@@ -75,11 +77,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ed_register_email"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
             <com.example.urkins.ui.custom.ButtonRegister
                 android:id="@+id/btn_register"
-                android:layout_width="298dp"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
@@ -91,15 +93,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ed_register_password"
-                tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
+                tools:ignore="TextSizeCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
 
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="32dp"
                 android:background="@color/transparent"
                 android:text="@string/login_text"
                 android:textAllCaps="false"
@@ -109,14 +111,14 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_register"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/iv_app_logo"
+        android:id="@+id/iv_app_logo_satu"
         android:layout_width="127dp"
         android:layout_height="98dp"
         android:layout_marginTop="153dp"
@@ -125,7 +127,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_satu" />
+        app:srcCompat="@drawable/logo_satu"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/tv_register_title"
@@ -142,7 +145,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_app_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_app_logo_satu" />
 
     <TextView
         android:id="@+id/tv_register_description"

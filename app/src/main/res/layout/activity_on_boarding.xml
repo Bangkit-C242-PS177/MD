@@ -10,7 +10,7 @@
     tools:context=".ui.activity.onboarding.OnBoardingActivity">
 
     <ImageView
-        android:id="@+id/img_bd1"
+        android:id="@+id/iv_img_bd1"
         android:layout_width="314dp"
         android:layout_height="307dp"
         android:layout_marginTop="5dp"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <TextView
-        android:id="@+id/title_bd1"
+        android:id="@+id/tv_title_bd1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -32,12 +32,13 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/img_bd1"
-        app:layout_constraintStart_toStartOf="@+id/img_bd1"
-        app:layout_constraintTop_toBottomOf="@+id/img_bd1" />
+        app:layout_constraintEnd_toEndOf="@+id/iv_img_bd1"
+        app:layout_constraintStart_toStartOf="@+id/iv_img_bd1"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img_bd1"
+        tools:ignore="VisualLintOverlap" />
 
     <TextView
-        android:id="@+id/text_bd1"
+        android:id="@+id/tv_text_bd1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -46,12 +47,13 @@
         android:text="@string/bd_satu_text"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/title_bd1"
-        app:layout_constraintStart_toStartOf="@+id/title_bd1"
-        app:layout_constraintTop_toBottomOf="@+id/title_bd1" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_title_bd1"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_bd1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_bd1"
+        tools:ignore="VisualLintOverlap" />
 
     <ImageView
-        android:id="@+id/img_bd2"
+        android:id="@+id/iv_img_bd2"
         android:layout_width="278.93dp"
         android:layout_height="307dp"
         android:layout_marginTop="5dp"
@@ -63,7 +65,7 @@
         android:src="@drawable/bd2" />
 
     <TextView
-        android:id="@+id/title_bd2"
+        android:id="@+id/tv_title_bd2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -72,13 +74,14 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/img_bd2"
-        app:layout_constraintStart_toStartOf="@+id/img_bd2"
-        app:layout_constraintTop_toBottomOf="@+id/img_bd2"
-        android:text="@string/bd_dua_title" />
+        app:layout_constraintEnd_toEndOf="@+id/iv_img_bd2"
+        app:layout_constraintStart_toStartOf="@+id/iv_img_bd2"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img_bd2"
+        android:text="@string/bd_dua_title"
+        tools:ignore="VisualLintOverlap" />
 
     <TextView
-        android:id="@+id/text_bd2"
+        android:id="@+id/tv_text_bd2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -86,13 +89,14 @@
         android:gravity="center_horizontal"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/title_bd2"
-        app:layout_constraintStart_toStartOf="@+id/title_bd2"
-        app:layout_constraintTop_toBottomOf="@+id/title_bd2"
-        android:text="@string/bd_dua_text" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_title_bd2"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_bd2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_bd2"
+        android:text="@string/bd_dua_text"
+        tools:ignore="VisualLintOverlap" />
 
     <ImageView
-        android:id="@+id/img_bd3"
+        android:id="@+id/iv_img_bd3"
         android:layout_width="314dp"
         android:layout_height="310.34dp"
         android:layout_marginTop="5dp"
@@ -104,7 +108,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <TextView
-        android:id="@+id/title_bd3"
+        android:id="@+id/tv_title_bd3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -113,13 +117,13 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/img_bd3"
-        app:layout_constraintStart_toStartOf="@+id/img_bd3"
-        app:layout_constraintTop_toBottomOf="@+id/img_bd3"
+        app:layout_constraintEnd_toEndOf="@+id/iv_img_bd3"
+        app:layout_constraintStart_toStartOf="@+id/iv_img_bd3"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img_bd3"
         android:text="@string/bd_tiga_title" />
 
     <TextView
-        android:id="@+id/text_bd3"
+        android:id="@+id/tv_text_bd3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -127,18 +131,18 @@
         android:gravity="center_horizontal"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/title_bd3"
-        app:layout_constraintStart_toStartOf="@+id/title_bd3"
-        app:layout_constraintTop_toBottomOf="@+id/title_bd3"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title_bd3"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_bd3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_bd3"
         android:text="@string/bd_tiga_text" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/bd1"
+        android:id="@+id/ifv_bd1"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="125dp"
         app:altSrc="@drawable/ic_circle_fill"
-        app:layout_constraintEnd_toStartOf="@+id/bd2"
+        app:layout_constraintEnd_toStartOf="@+id/ifv_bd2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
@@ -146,31 +150,31 @@
         app:tint="@color/pink" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/bd2"
+        android:id="@+id/ifv_bd2"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="35dp"
         app:altSrc="@drawable/ic_circle_fill"
-        app:layout_constraintBottom_toBottomOf="@+id/bd1"
-        app:layout_constraintEnd_toStartOf="@+id/bd3"
+        app:layout_constraintBottom_toBottomOf="@+id/ifv_bd1"
+        app:layout_constraintEnd_toStartOf="@+id/ifv_bd3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bd1"
-        app:layout_constraintTop_toTopOf="@+id/bd1"
+        app:layout_constraintStart_toEndOf="@+id/ifv_bd1"
+        app:layout_constraintTop_toTopOf="@+id/ifv_bd1"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_circle"
         app:tint="@color/pink" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/bd3"
+        android:id="@+id/ifv_bd3"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="35dp"
         app:altSrc="@drawable/ic_circle_fill"
-        app:layout_constraintBottom_toBottomOf="@+id/bd2"
+        app:layout_constraintBottom_toBottomOf="@+id/ifv_bd2"
         app:layout_constraintEnd_toStartOf="@+id/parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bd2"
-        app:layout_constraintTop_toTopOf="@+id/bd2"
+        app:layout_constraintStart_toEndOf="@+id/ifv_bd2"
+        app:layout_constraintTop_toTopOf="@+id/ifv_bd2"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_circle"
         app:tint="@color/pink" />
@@ -192,7 +196,7 @@
         app:layout_constraintStart_toStartOf="@id/parent" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/app_logo"
+        android:id="@+id/iv_app_logo_dua"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:contentDescription="@string/app_logo_dua"

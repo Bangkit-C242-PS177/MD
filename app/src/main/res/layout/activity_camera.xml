@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/app_logo"
+            android:id="@+id/iv_app_logo_dua"
             android:layout_width="66dp"
             android:layout_height="25dp"
             android:layout_marginTop="36dp"
@@ -36,12 +36,12 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_analyze"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="30dp"
             android:backgroundTint="@color/pink"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toTopOf="@+id/capture_image"
@@ -49,18 +49,20 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_finder"
-            app:layout_constraintVertical_bias="0.222">
+            app:layout_constraintVertical_bias="0.222"
+            tools:ignore="UnknownId">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_camera"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp">
 
                 <TextView
-                    android:id="@+id/analyze_text"
-                    android:layout_width="395dp"
-                    android:layout_height="85dp"
+                    android:id="@+id/tv_analyze_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/afacad"
                     android:padding="5dp"
@@ -73,19 +75,22 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="TextSizeCheck" />
+                    tools:ignore="TextSizeCheck,VisualLintLongText" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/capture_image"
+            android:id="@+id/iv_capture_image"
             android:layout_width="75dp"
             android:layout_height="68dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="4dp"
             android:contentDescription="@string/shutter_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/cv_analyze"
             app:layout_constraintStart_toStartOf="@+id/cv_analyze"
+            app:layout_constraintTop_toBottomOf="@+id/cv_analyze"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/ic_shutter" />
 
         <ProgressBar

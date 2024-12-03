@@ -9,7 +9,7 @@
     tools:context=".ui.activity.recommendskincare.SkincareRecommendationActivity">
 
     <ImageView
-        android:id="@+id/app_logo"
+        android:id="@+id/iv_app_logo_dua"
         android:layout_width="66dp"
         android:layout_height="25dp"
         android:layout_marginTop="36dp"
@@ -28,7 +28,7 @@
         android:layout_marginTop="36dp"
         android:contentDescription="@string/back_button"
         android:src="@drawable/btn_back"
-        app:layout_constraintEnd_toStartOf="@+id/app_logo"
+        app:layout_constraintEnd_toStartOf="@+id/iv_app_logo_dua"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -9,7 +9,7 @@
     tools:context=".ui.activity.setting.SettingActivity">
 
     <ImageView
-        android:id="@+id/app_logo"
+        android:id="@+id/iv_app_logo_dua"
         android:layout_width="66dp"
         android:layout_height="25dp"
         android:layout_marginTop="36dp"
@@ -28,14 +28,14 @@
         android:layout_marginTop="36dp"
         android:contentDescription="@string/back_button"
         android:src="@drawable/btn_back"
-        app:layout_constraintEnd_toStartOf="@+id/app_logo"
+        app:layout_constraintEnd_toStartOf="@+id/iv_app_logo_dua"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RedundantDescriptionCheck" />
 
     <TextView
-        android:id="@+id/title_setting"
+        android:id="@+id/tv_title_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -46,7 +46,7 @@
         android:text="@string/setting"
         android:textColor="@color/black"
         android:textSize="64sp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/cl_item_setting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,39 +54,43 @@
         tools:ignore="RtlSymmetry" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="382dp"
+        android:id="@+id/cl_item_setting"
+        android:layout_width="match_parent"
         android:layout_height="446dp"
-        android:layout_marginBottom="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/title_setting"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title_setting"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/title_setting">
+        app:layout_constraintStart_toStartOf="@+id/tv_title_setting">
 
         <Button
             android:id="@+id/btn_profile_edit"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/transparent"
             android:fontFamily="@font/calibri"
             android:letterSpacing="-0.02"
             android:text="@string/edit_profile"
             android:textAllCaps="false"
+            android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="27sp"
             android:textStyle="bold"
             app:icon="@drawable/ic_gallery"
             app:iconTint="@android:color/primary_text_light"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btn_profile_edit_arrow"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,VisualLintButtonSize,VisualLintOverlap" />
 
         <Button
             android:id="@+id/btn_profile_edit_arrow"
-            android:layout_width="176dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/transparent"
             android:drawableEnd="@drawable/ic_arrow_right"
             app:iconTint="@color/black"
@@ -96,16 +100,18 @@
             app:layout_constraintStart_toEndOf="@+id/btn_profile_edit"
             app:layout_constraintTop_toTopOf="@+id/btn_profile_edit"
             app:layout_constraintVertical_bias="0.0"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btn_notification"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/transparent"
             android:fontFamily="@font/calibri"
+            android:textAlignment="viewStart"
             android:letterSpacing="-0.02"
             android:text="@string/notification"
             android:textAllCaps="false"
@@ -115,14 +121,16 @@
             app:icon="@drawable/ic_notif"
             app:iconTint="@android:color/primary_text_light"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btn_notification_arrow"
             app:layout_constraintTop_toBottomOf="@+id/btn_profile_edit"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,VisualLintButtonSize,VisualLintOverlap" />
 
         <Button
             android:id="@+id/btn_notification_arrow"
-            android:layout_width="155dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:background="@color/transparent"
             android:drawableEnd="@drawable/ic_arrow_right"
             app:iconTint="@color/black"
@@ -130,16 +138,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_notification"
             app:layout_constraintTop_toTopOf="@+id/btn_notification"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btn_language"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/transparent"
             android:fontFamily="@font/calibri"
+            android:textAlignment="viewStart"
             android:letterSpacing="-0.02"
             android:text="@string/language"
             android:textAllCaps="false"
@@ -149,13 +159,16 @@
             app:icon="@drawable/ic_language"
             app:iconTint="@android:color/primary_text_light"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btn_language_arrow"
             app:layout_constraintTop_toBottomOf="@+id/btn_notification"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,VisualLintButtonSize,VisualLintOverlap" />
 
         <Button
             android:id="@+id/btn_language_arrow"
-            android:layout_width="189dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:background="@color/transparent"
             android:drawableEnd="@drawable/ic_arrow_right"
             app:iconTint="@color/black"
@@ -165,28 +178,29 @@
             app:layout_constraintStart_toEndOf="@+id/btn_language"
             app:layout_constraintTop_toTopOf="@+id/btn_language"
             app:layout_constraintVertical_bias="0.0"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btn_logout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/transparent"
             android:fontFamily="@font/calibri"
             android:letterSpacing="-0.02"
             android:text="@string/Logout"
+            android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="27sp"
             android:textStyle="bold"
             app:icon="@drawable/ic_logout"
             app:iconTint="@android:color/primary_text_light"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_language"
-            tools:ignore="TextContrastCheck" />
-
+            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

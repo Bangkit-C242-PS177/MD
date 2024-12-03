@@ -9,7 +9,7 @@
     tools:context=".ui.activity.login.LoginActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
+        android:id="@+id/cv_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,8 +25,9 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_login_description">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_login"
             android:layout_width="match_parent"
-            android:layout_height="317dp"
+            android:layout_height="wrap_content"
             android:padding="10dp">
 
             <com.example.urkins.ui.custom.EditTextEmail
@@ -67,7 +68,7 @@
 
             <com.example.urkins.ui.custom.ButtonLogin
                 android:id="@+id/btn_login"
-                android:layout_width="298dp"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
@@ -85,9 +86,9 @@
                 android:id="@+id/btn_register"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="32dp"
                 android:background="@color/transparent"
                 android:text="@string/register_text"
                 android:textAllCaps="false"
@@ -97,14 +98,14 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_login"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/iv_app_logo"
+        android:id="@+id/iv_app_logo_satu"
         android:layout_width="127dp"
         android:layout_height="98dp"
         android:layout_marginTop="153dp"
@@ -113,7 +114,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_satu" />
+        app:srcCompat="@drawable/logo_satu"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/tv_login_title"
@@ -130,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_app_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_app_logo_satu" />
 
     <TextView
         android:id="@+id/tv_login_description"
