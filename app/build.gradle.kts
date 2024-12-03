@@ -73,4 +73,5 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
 }
