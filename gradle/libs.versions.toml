@@ -33,6 +33,7 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleLivedataKtx" }
 camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraCore" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 converter-gson = { module = "om.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 face-detection = { module = "com.google.mlkit:face-detection", version.ref = "faceDetection" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }

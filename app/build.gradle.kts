@@ -76,5 +76,5 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
     implementation(libs.glide)
-    implementation("com.github.bumptech.glide:compiler:4.16.0")
+    implementation(libs.compiler)
 }
