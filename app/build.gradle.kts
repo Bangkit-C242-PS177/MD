@@ -75,5 +75,5 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.glide)
 }
