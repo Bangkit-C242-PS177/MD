@@ -1,6 +1,7 @@
 [versions]
 agp = "8.7.1"
 cameraCore = "1.4.0"
+datastorePreferences = "1.1.1"
 faceDetection = "16.1.7"
 kotlin = "1.9.24"
 coreKtx = "1.15.0"
@@ -22,6 +23,7 @@ playServicesMlkitFaceDetection = "17.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraCore" }
 face-detection = { module = "com.google.mlkit:face-detection", version.ref = "faceDetection" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
