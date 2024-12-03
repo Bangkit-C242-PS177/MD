@@ -15,6 +15,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField(
+            "String",
+            "BASE_URL",
+            "\"https://urskin-app-backend-217269171339.us-central1.run.app/api/\""
+        )
     }
 
     buildTypes {
