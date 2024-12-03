@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.androidx.activity.ktx)
 
     implementation(libs.kotlinx.coroutines.core)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
 
 }
