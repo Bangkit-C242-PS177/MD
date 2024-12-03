@@ -71,6 +71,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.retrofit)
+    implementation("om.squareup.retrofit2:converter-gson:2.9.0")
 
 
 }
