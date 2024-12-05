@@ -1,6 +1,7 @@
 package com.example.urkins.ui.activity.camera
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +24,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.urkins.R
 import com.example.urkins.databinding.ActivityCameraBinding
+import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -96,30 +98,27 @@ class CameraActivity : AppCompatActivity() {
 
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-            val preview = Preview.Builder().build().also {
-                it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
-            }
-
-            val imageAnalyzer = ImageAnalysis.Builder()
-                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+            val preview = Preview.Builder()
                 .build()
-                .also { analysisUseCase ->
-                    analysisUseCase.setAnalyzer(cameraExecutor, { imageProxy ->
-                        val mediaImage = imageProxy.image
-                        if (mediaImage != null) {
-                            val rotationDegrees = imageProxy.imageInfo.rotationDegrees
-                            val image = InputImage1.fromMediaImage(mediaImage, rotationDegrees)
-                        }
-                    })
+                .also {
+                    it.surfaceProvider = binding.viewFinder.surfaceProvider
                 }
-
-            val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
-
+            imageCapture = ImageCapture.Builder().build()
             try {
                 cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageAnalyzer)
+                cameraProvider.bindToLifecycle(
+                    this,
+                    cameraSelector,
+                    preview,
+                    imageCapture
+                )
             } catch (exc: Exception) {
-                Log.e("CameraX", "Use case binding failed", exc)
+                Snackbar.make(
+                    binding.root,
+                    getString(R.string.failed_start_camera),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                Log.e(TAG, "startCamera: ${exc.message}")
             }
         }, ContextCompat.getMainExecutor(this))
     }

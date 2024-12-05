@@ -83,4 +83,5 @@
     <string name="photo_picker_title">pick photo</string>
     <string name="acces_granted">acces granted</string>
     <string name="acces_denied">acces denied</string>
+    <string name="failed_start_camera">failed start camera</string>
 </resources>
