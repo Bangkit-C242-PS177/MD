@@ -143,9 +143,4 @@ class CameraActivity : AppCompatActivity() {
                 }
             })
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        cameraExecutor.shutdown()
-    }
 }
