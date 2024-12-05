@@ -21,10 +21,10 @@ import java.util.concurrent.Executors
 import com.google.mlkit.vision.common.InputImage as InputImage1
 
 class CameraActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityCameraBinding
+    private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
     private lateinit var previewView: PreviewView
     private lateinit var cameraExecutor: ExecutorService
-    private lateinit var binding: ActivityCameraBinding
     private lateinit var imageCapture: ImageCapture
 
 
