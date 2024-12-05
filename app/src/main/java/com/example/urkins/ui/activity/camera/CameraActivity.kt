@@ -7,21 +7,26 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageProxy
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import com.example.urkins.R
-import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.face.FaceDetection
+import com.example.urkins.databinding.ActivityCameraBinding
+import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import com.google.mlkit.vision.common.InputImage as InputImage1
 
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var previewView: PreviewView
     private lateinit var cameraExecutor: ExecutorService
+    private lateinit var binding: ActivityCameraBinding
+    private lateinit var imageCapture: ImageCapture
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,64 +36,62 @@ class CameraActivity : AppCompatActivity() {
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         startCamera()
+        supportActionBar?.hide()
+
     }
 
+    @OptIn(ExperimentalGetImage::class)
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
-        cameraProviderFuture.addListener(Runnable {
+        cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-            bindPreview(cameraProvider)
+            val preview = Preview.Builder().build().also {
+                it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
+            }
+
+            val imageAnalyzer = ImageAnalysis.Builder()
+                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                .build()
+                .also { analysisUseCase ->
+                    analysisUseCase.setAnalyzer(cameraExecutor, { imageProxy ->
+                        val mediaImage = imageProxy.image
+                        if (mediaImage != null) {
+                            val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+                            val image = InputImage1.fromMediaImage(mediaImage, rotationDegrees)
+                        }
+                    })
+                }
+
+            val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+
+            try {
+                cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageAnalyzer)
+            } catch (exc: Exception) {
+                Log.e("CameraX", "Use case binding failed", exc)
+            }
         }, ContextCompat.getMainExecutor(this))
     }
 
-    private fun bindPreview(cameraProvider: ProcessCameraProvider) {
-        val preview = Preview.Builder().build().also {
-            it.setSurfaceProvider(previewView.surfaceProvider)
-        }
+    private fun takePhoto() {
+        val photoFile = File(
+            externalMediaDirs.firstOrNull(),
+            "${System.currentTimeMillis()}.jpg"
+        )
 
-        val imageAnalyzer = ImageAnalysis.Builder()
-            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-            .build()
-            .also {
-                it.setAnalyzer(cameraExecutor, ImageAnalyzer())
-            }
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
-        val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+        imageCapture.takePicture(outputOptions, ContextCompat.getMainExecutor(this),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                    Log.d("CameraX", "Photo saved at: ${photoFile.absolutePath}")
+                }
 
-        try {
-            cameraProvider.unbindAll()
-            cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageAnalyzer)
-        } catch (exc: Exception) {
-            Log.e("CameraXApp", "Use case binding failed", exc)
-        }
-    }
-
-    private inner class ImageAnalyzer : ImageAnalysis.Analyzer {
-        private val faceDetector = FaceDetection.getClient()
-
-        @OptIn(ExperimentalGetImage::class)
-        override fun analyze(image: ImageProxy) {
-            val mediaImage = image.image
-            if (mediaImage != null) {
-                val inputImage = InputImage.fromMediaImage(mediaImage, image.imageInfo.rotationDegrees)
-
-                faceDetector.process(inputImage)
-                    .addOnSuccessListener { faces ->
-                        for (face in faces) {
-                            // Dapatkan informasi tentang wajah
-                            val bounds = face.boundingBox
-                            // Lakukan sesuatu dengan informasi wajah
-                        }
-                    }
-                    .addOnFailureListener { e ->
-                        Log.e("CameraXApp", "Face detection failed", e)
-                    }
-                    .addOnCompleteListener {
-                        image.close()
-                    }
-            }
-        }
+                override fun onError(exception: ImageCaptureException) {
+                    Log.e("CameraX", "Photo capture failed: ${exception.message}")
+                }
+            })
     }
 
     override fun onDestroy() {
