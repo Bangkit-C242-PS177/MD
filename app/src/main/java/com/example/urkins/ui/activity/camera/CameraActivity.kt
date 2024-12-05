@@ -97,6 +97,12 @@ class CameraActivity : AppCompatActivity() {
 
     }
 
+    public override fun onResume() {
+        super.onResume()
+        hideSystemUi()
+        startCamera()
+    }
+
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
