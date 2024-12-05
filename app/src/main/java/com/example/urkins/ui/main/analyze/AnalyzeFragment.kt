@@ -21,6 +21,7 @@ import com.example.urkins.ui.activity.login.LoginActivity
 class AnalyzeFragment : Fragment() {
 
     private var _binding: FragmentAnalyzeBinding? = null
+    private val analyzeViewModel: AnalyzeViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -39,6 +40,18 @@ class AnalyzeFragment : Fragment() {
             }
         } else {
             Log.d(getString(R.string.camera_title), getString(R.string.failed_take_photo))
+        }
+    }
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            Log.d(getString(R.string.photo_picker_title), getString(R.string.acces_granted))
+            showSnackBar(getString(R.string.acces_granted))
+        } else {
+            Log.d(getString(R.string.photo_picker_title), getString(R.string.acces_denied))
+            showSnackBar(getString(R.string.acces_denied))
         }
     }
 

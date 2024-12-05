@@ -80,4 +80,7 @@
     <string name="product_ingredient_text">will be the ingredients</string>
     <string name="camera_title">Camera</string>
     <string name="failed_take_photo">failed take photo</string>
+    <string name="photo_picker_title">pick photo</string>
+    <string name="acces_granted">acces granted</string>
+    <string name="acces_denied">acces denied</string>
 </resources>
