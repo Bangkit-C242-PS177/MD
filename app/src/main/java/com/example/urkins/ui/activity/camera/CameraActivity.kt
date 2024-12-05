@@ -1,5 +1,7 @@
 package com.example.urkins.ui.activity.camera
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.OrientationEventListener
@@ -72,8 +74,19 @@ class CameraActivity : AppCompatActivity() {
             insets
         }
 
+        binding.ivCaptureImage.setOnClickListener { takePhoto() }
+
+        cameraViewModel.imageUri.observe(this) { uri ->
+            uri?.let {
+                val intent = Intent().apply {
+                    putExtra("image_uri", it.toString())
+                }
+                setResult(Activity.RESULT_OK, intent)
+                finish()
+            }
+        }
+
         startCamera()
-        supportActionBar?.hide()
 
     }
 
