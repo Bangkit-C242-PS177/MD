@@ -70,10 +70,6 @@ class AnalyzeFragment : Fragment() {
         _binding = FragmentAnalyzeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textDashboard
-//        analyzeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         return root
 
 
@@ -83,13 +79,16 @@ class AnalyzeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnTakePicture.setOnClickListener { cekToken() }
+        if (!allPermissionGranted()) {
+            requestPermissionLauncher.launch(REQUIRED_PERMISSION)
+        }
     }
 
     private fun cekToken() {
             val userToken = true
             if (userToken) {
                 val intent = Intent(requireContext(), CameraActivity::class.java)
-                startActivity(intent)
+                launchCameraActivity.launch(intent)
             } else {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)
