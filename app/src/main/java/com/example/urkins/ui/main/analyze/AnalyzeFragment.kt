@@ -17,6 +17,7 @@ import com.example.urkins.R
 import com.example.urkins.databinding.FragmentAnalyzeBinding
 import com.example.urkins.ui.activity.camera.CameraActivity
 import com.example.urkins.ui.activity.login.LoginActivity
+import com.google.android.material.snackbar.Snackbar
 
 class AnalyzeFragment : Fragment() {
 
@@ -96,6 +97,10 @@ class AnalyzeFragment : Fragment() {
         addStoryViewModel.selectUriImage.value?.let {
             binding.previewImage.setImageURI(it)
         }
+    }
+
+    private fun showSnackBar(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {
