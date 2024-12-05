@@ -2,6 +2,7 @@ package com.example.urkins.ui.activity.camera
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.annotation.OptIn
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -23,17 +24,13 @@ import com.google.mlkit.vision.common.InputImage as InputImage1
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
-    private lateinit var previewView: PreviewView
-    private lateinit var cameraExecutor: ExecutorService
-    private lateinit var imageCapture: ImageCapture
+    private var imageCapture: ImageCapture? = null
+    private val cameraViewModel: CameraViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
-
-        previewView = findViewById(R.id.view_finder)
-        cameraExecutor = Executors.newSingleThreadExecutor()
 
         startCamera()
         supportActionBar?.hide()
