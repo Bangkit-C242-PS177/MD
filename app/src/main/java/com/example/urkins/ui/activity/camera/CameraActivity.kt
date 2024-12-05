@@ -14,16 +14,12 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.annotation.OptIn
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
-import androidx.camera.core.ExperimentalGetImage
-import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -31,9 +27,6 @@ import com.example.urkins.R
 import com.example.urkins.databinding.ActivityCameraBinding
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import com.google.mlkit.vision.common.InputImage as InputImage1
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
