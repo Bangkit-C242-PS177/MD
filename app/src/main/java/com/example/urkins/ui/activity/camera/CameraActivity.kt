@@ -3,10 +3,12 @@ package com.example.urkins.ui.activity.camera
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.OrientationEventListener
 import android.view.Surface
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.annotation.OptIn
@@ -92,7 +94,6 @@ class CameraActivity : AppCompatActivity() {
 
     }
 
-    @OptIn(ExperimentalGetImage::class)
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
@@ -124,21 +125,26 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun takePhoto() {
-        val photoFile = File(
-            externalMediaDirs.firstOrNull(),
-            "${System.currentTimeMillis()}.jpg"
-        )
-
+        val photoFile = File(filesDir, "${System.currentTimeMillis()}.jpg")
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
-        imageCapture.takePicture(outputOptions, ContextCompat.getMainExecutor(this),
+        binding.progressIndicator.visibility = View.VISIBLE
+
+        imageCapture?.takePicture(outputOptions, ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
-                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    Log.d("CameraX", "Photo saved at: ${photoFile.absolutePath}")
+                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                    val savedUri = Uri.fromFile(photoFile)
+                    binding.progressIndicator.visibility = View.GONE
+                    cameraViewModel.setImageUri(savedUri)
+
                 }
 
-                override fun onError(exception: ImageCaptureException) {
-                    Log.e("CameraX", "Photo capture failed: ${exception.message}")
+                override fun onError(exc: ImageCaptureException) {
+                    binding.progressIndicator.visibility = View.GONE
+                    Snackbar.make(binding.root, R.string.failed_take_photo, Snackbar.LENGTH_SHORT)
+                        .show()
+                    Log.e(TAG, "takePhoto: ${exc.message}")
+
                 }
             })
     }
