@@ -30,16 +30,13 @@ class AnalyzeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
-    private val addStoryViewModel: AnalyzeViewModel by viewModels()
-
     private val launchCameraActivity = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val uri = result.data?.getStringExtra("image_uri")?.let { Uri.parse(it) }
             uri?.let {
-                addStoryViewModel.setSelectImageUri(it)
+                analyzeViewModel.setSelectImageUri(it)
                 showImage()
             }
         } else {
@@ -96,7 +93,7 @@ class AnalyzeFragment : Fragment() {
     }
 
     private fun showImage() {
-        addStoryViewModel.selectUriImage.value?.let {
+        analyzeViewModel.selectUriImage.value?.let {
             binding.previewImage.setImageURI(it)
         }
     }
