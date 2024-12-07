@@ -2,6 +2,7 @@ package com.example.urkins.di
 
 import android.content.Context
 import com.example.urkins.data.pref.UserPreference
+import com.example.urkins.data.pref.dataStore
 import com.example.urkins.data.repository.RegisterRepository
 import com.example.urkins.data.retrofit.ApiConfig
 import kotlinx.coroutines.runBlocking
