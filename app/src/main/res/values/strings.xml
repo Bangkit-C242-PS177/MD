@@ -84,6 +84,17 @@
     <string name="acces_granted">acces granted</string>
     <string name="acces_denied">acces denied</string>
     <string name="failed_start_camera">failed start camera</string>
+    <string name="notification_title">Hi Kinnies!</string>
+    <string name="notification_message">How\'s your skin journey been going? Notice any changes? Let’s dive in and analyze those transformations together!</string>
+    <string name="notification_subtext">Let\'s analyze your transformation</string>
+    <string name="notifications_permission_granted">Notifications permission granted</string>
+    <string name="notifications_permission_rejected">Notifications permission rejected</string>
+    <string name="notification_enabled">Enabled</string>
+    <string name="notification_disabled">Disabled</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="notification_disabled_dialog_text">Are you sure you want to disable notifications?</string>
+    <string name="notifications_disable_title_dialog">Disable Notifications</string>
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>

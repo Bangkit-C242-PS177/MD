@@ -85,4 +85,6 @@ dependencies {
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
     implementation(libs.okhttp3.integration)
+
+    implementation(libs.androidx.work.runtime.ktx)
 }
