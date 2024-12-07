@@ -84,4 +84,64 @@
     <string name="acces_granted">acces granted</string>
     <string name="acces_denied">acces denied</string>
     <string name="failed_start_camera">failed start camera</string>
+
+    <string-array name="data_article_title">
+        <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
+        <item>Cara Merawat Kulit Wajah yang Baik dan Benar</item>
+        <item>Kenali Jenis Kulit Wajah dan Cara Merawatnya di Sini!</item>
+        <item>Ini lho Perbedaan Physical, Chemical, dan Hybrid Sunscreen</item>
+        <item>Cara Merawat Kulit Wajah Sensitif dan Berminyak</item>
+        <item>5 Penyakit Kulit yang Perlu Diwaspadai Orang Dewasa</item>
+        <item>Manfaatkan Berjemur Sinar Matahari Pagi demi Kesehatan Kulit</item>
+        <item>Ketahui Cara Menghilangkan Jerawat dan Bekasnya</item>
+        <item>Vitamin untuk Kulit Kering yang Patut Disimak</item>
+        <item>Cara Merawat Kulit Berdasarkan Jenisnya</item>
+        <item>Cara Memutihkan Kulit dan Risiko yang Menyertainya</item>
+        <item>Ini Manfaat Minyak Zaitun untuk Wajah Berjerawat</item>
+    </string-array>
+
+    <string-array name="data_article_date">
+        <item>14 November 2024</item>
+        <item>12 November 2024</item>
+        <item>12 November 2024</item>
+        <item>11 November 2024</item>
+        <item>13 November 2024</item>
+        <item>9 November 2024</item>
+        <item>8 November 2024</item>
+        <item>7 November 2024</item>
+        <item>6 November 2024</item>
+        <item>6 November 2024</item>
+        <item>5 November 2024</item>
+        <item>4 November 2024</item>
+    </string-array>
+
+    <string-array name="data_article_author">
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+        <item>dr. Kevin Adrian</item>
+    </string-array>
+
+    <string-array name="data_article_photo">
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1603680473/attached_image/penyebab-muka-merah-yang-paling-sering-terjadi-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1589190183/attached_image/cara-merawat-kulit-wajah-yang-baik-dan-benar-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1594170509/attached_image/kenali-jenis-kulit-wajah-dan-cara-merawatnya-di-sini-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1636633142/attached_image/ini-lho-perbedaan-physical-chemical-dan-hybrid-sunscreen-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1589191689/attached_image/ini-cara-merawat-kulit-wajah-kering-berminyak-dan-sensitif-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1645170393/attached_image/5-penyakit-kulit-yang-umum-diderita-orang-dewasa-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1687493553/attached_image/manfaatkan-berjemur-sinar-matahari-pagi-demi-kesehatan-kulit-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1594702703/attached_image/ketahui-cara-menghilangkan-jerawat-dan-bekasnya-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1597740441/attached_image/vitamin-untuk-kulit-kering-yang-patut-disimak-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1609550147/attached_image/kulit-cermin-kesehatan-tubuh-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1609079056/attached_image/cara-memutihkan-kulit-dan-risiko-yang-menyertainya-0-alodokter.jpg</item>
+        <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1595824412/attached_image/ini-manfaat-minyak-zaitun-untuk-wajah-berjerawat-0-alodokter.jpg</item>
+    </string-array>
 </resources>
