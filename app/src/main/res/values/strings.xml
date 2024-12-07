@@ -95,6 +95,10 @@
     <string name="no">No</string>
     <string name="notification_disabled_dialog_text">Are you sure you want to disable notifications?</string>
     <string name="notifications_disable_title_dialog">Disable Notifications</string>
+    <string name="register_succes">Register Succes</string>
+    <string name="register_error">Register Error</string>
+    <string name="register_error_with_error_messege">"Register Error "</string>
+    <string name="confirmation">Confirm</string>
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
