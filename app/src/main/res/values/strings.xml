@@ -84,6 +84,9 @@
     <string name="acces_granted">acces granted</string>
     <string name="acces_denied">acces denied</string>
     <string name="failed_start_camera">failed start camera</string>
+    <string name="register_succes">Register Succes</string>
+    <string name="register_error">Register Error</string>
+    <string name="register_error_with_error_messege">"Register Error "</string>
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
