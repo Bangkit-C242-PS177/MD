@@ -6,8 +6,8 @@ import com.example.urkins.data.retrofit.ApiService
 class RegisterRepository (
     private val apiService: ApiService
 ) {
-    suspend fun registerUser(username: String, email: String, password: String, confirm_password: String): RegisterResponse {
-        return apiService.registerUser(username, email, password, confirm_password)
+    suspend fun registerUser(registerRequest: ApiService.RegisterRequest): RegisterResponse {
+        return apiService.registerUser(registerRequest)
     }
 //
 //    suspend fun registerUser(username: String, email: String, password: String, confirm_password: String): String {

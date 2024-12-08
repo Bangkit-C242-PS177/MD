@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.urkins.R
 import com.example.urkins.data.repository.RegisterRepository
 import com.example.urkins.data.response.RegisterResponse
+import com.example.urkins.data.retrofit.ApiService
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,7 +34,8 @@ class RegisterViewModel(
         _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val response = registerRepository.registerUser(username, email, password, confirm_password)
+                val registerRequest = ApiService.RegisterRequest(username, email, password, confirm_password)
+                val response = registerRepository.registerUser(registerRequest)
                 _loading.postValue(false)
                 _showSuccessDialog.postValue(response.message ?: getApplication<Application>().getString(R.string.register_succes))
             } catch (e: HttpException) {
