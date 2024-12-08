@@ -6,9 +6,12 @@ import com.example.urkins.data.retrofit.ApiService
 class LoginRepository (
     private val apiService: ApiService
 ) {
-    suspend fun login(email: String, password: String): LoginResponse {
-        return apiService.loginUser(email, password)
+    suspend fun login(loginRequest: ApiService.LoginRequest): LoginResponse {
+        return apiService.loginUser(loginRequest)
     }
+//    suspend fun login(email: String, password: String): LoginResponse {
+//        return apiService.loginUser(email, password)
+//    }
 
     companion object {
         @Volatile

@@ -33,9 +33,7 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
 
-        val factoryResult: RegisterViewModelFactory = RegisterViewModelFactory.getInstance(
-            application
-        )
+        val factoryResult: RegisterViewModelFactory = RegisterViewModelFactory.getInstance(application)
         registerViewModel = ViewModelProvider(this, factoryResult)[RegisterViewModel::class.java]
 
         registerViewModel.showSuccessDialog.observe(this) {
@@ -50,10 +48,7 @@ class RegisterActivity : AppCompatActivity() {
             if (isLoading) {
                 binding.progressIndicator.visibility = View.VISIBLE
                 binding.overlay.visibility = View.VISIBLE
-                window.setFlags(
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-                )
+                window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
             } else {
                 binding.progressIndicator.visibility = View.GONE
                 binding.overlay.visibility = View.GONE
@@ -62,79 +57,48 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         setMyButtonEnable()
-
         setUpAction()
-
         checkChanged()
     }
 
     private fun checkChanged() {
         binding.edRegisterName.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 setMyButtonEnable()
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
+            override fun afterTextChanged(s: Editable?) {}
         })
 
         binding.edRegisterEmail.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 setMyButtonEnable()
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
+            override fun afterTextChanged(s: Editable?) {}
         })
 
         binding.edRegisterPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 setMyButtonEnable()
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
+            override fun afterTextChanged(s: Editable?) {}
         })
 
         binding.edRegisterConfirmPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 setMyButtonEnable()
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
+            override fun afterTextChanged(s: Editable?) {}
         })
     }
 
     private fun setUpAction() {
         binding.btnLogin.setOnClickListener {
             intent = Intent(this, LoginActivity::class.java)
-            startActivity(
-                intent
-            )
+            startActivity(intent)
             finish()
         }
 
@@ -149,11 +113,14 @@ class RegisterActivity : AppCompatActivity() {
         val userPassword = binding.edRegisterPassword.text.toString().trim()
         val userConfirmPassword = binding.edRegisterConfirmPassword.text.toString().trim()
 
-        registerViewModel.registerUser(userName, userEmail, userPassword, userConfirmPassword)
+        if (userPassword != userConfirmPassword) {
+            showErrorDialog("Password tidak cocok")
+            return
+        }
 
+        registerViewModel.registerUser(userName, userEmail, userPassword, userConfirmPassword)
     }
 
-    @Suppress("DEPRECATION")
     private fun showDialog(message: String) {
         val builder = AlertDialog.Builder(this).setMessage(message)
             .setPositiveButton(R.string.confirmation) { dialog, _ ->
@@ -170,12 +137,9 @@ class RegisterActivity : AppCompatActivity() {
         alertDialog.window?.setBackgroundDrawableResource(R.color.white)
     }
 
-    @Suppress("DEPRECATION")
     private fun showErrorDialog(errorMessage: String) {
         val builder = AlertDialog.Builder(this).setMessage(errorMessage)
-            .setPositiveButton(R.string.confirmationno) { dialog, _ ->
-                dialog.dismiss()
-            }
+            .setPositiveButton(R.string.confirmationno) { dialog, _ -> dialog.dismiss() }
         val alertDialog = builder.create()
         alertDialog.show()
         val messageView = alertDialog.findViewById<TextView>(android.R.id.message)
@@ -189,8 +153,7 @@ class RegisterActivity : AppCompatActivity() {
         val registerPasswordText = binding.edRegisterPassword.text
         val registerConfirmPasswordText = binding.edRegisterConfirmPassword.text
         binding.btnRegister.isEnabled =
-            (registerEmailText.toString().isNotEmpty() && registerPasswordText.toString()
-                .isNotEmpty() && registerNameText.toString()
-                .isNotEmpty() && registerConfirmPasswordText.toString().isNotEmpty() && registerNameText != null && registerEmailText != null && registerPasswordText != null && registerConfirmPasswordText != null)
+            (registerEmailText.toString().isNotEmpty() && registerPasswordText.toString().isNotEmpty() &&
+                    registerNameText.toString().isNotEmpty() && registerConfirmPasswordText.toString().isNotEmpty())
     }
 }

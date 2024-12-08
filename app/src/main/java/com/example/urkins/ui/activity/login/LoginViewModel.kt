@@ -9,6 +9,7 @@ import com.example.urkins.R
 import com.example.urkins.data.pref.UserPreference
 import com.example.urkins.data.repository.LoginRepository
 import com.example.urkins.data.response.LoginResponse
+import com.example.urkins.data.retrofit.ApiService
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,47 +33,43 @@ class LoginViewModel (
     val loading: LiveData<Boolean>
         get() = _loading
 
-
     fun loginUser(email: String, password: String) {
         _loading.value = true
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val response = loginRepository.login(email, password)
-                val loginResult = response.user
-                val userId = loginResult?.email
-                val username = loginResult?.username
-                val userToken = response.accessToken
+                val loginRequest = ApiService.LoginRequest(email, password)
+                val response = loginRepository.login(loginRequest)
                 _loading.postValue(false)
                 _showSuccessDialog.postValue(getApplication<Application>().getString(R.string.login_succes_dialog))
-                userToken?.let { token ->
-                    userId?.let { id ->
-                        username?.let { name ->
-                            saveUserData(id, name, token)
-                        }
-                    }
-                }
+                saveUserData(response)
             } catch (e: HttpException) {
                 _loading.postValue(false)
-                val jsonInString = e.response()?.errorBody()?.string()
-                val errorBody = Gson().fromJson(jsonInString, LoginResponse::class.java)
-                val errorMessage = errorBody.message
-                    ?: getApplication<Application>().getString(R.string.login_error_messege)
-                _showErrorDialog.postValue(errorMessage)
+                handleError(e)
             } catch (e: Exception) {
                 _loading.postValue(false)
-                _showErrorDialog.postValue(
-                    getApplication<Application>().getString(R.string.login_failed_dialog)
-                )
+                _showErrorDialog.postValue(getApplication<Application>().getString(R.string.login_failed_dialog))
             }
         }
     }
 
-
-    private fun saveUserData(userId: String, username: String, userToken: String) {
-        viewModelScope.launch {
-            userPreference.saveUserData(token = userToken, email = userId, name = username)
+    private fun handleError(e: HttpException) {
+        try {
+            val jsonInString = e.response()?.errorBody()?.string()
+            if (jsonInString != null && jsonInString.startsWith("{")) {
+                val errorBody = Gson().fromJson(jsonInString, LoginResponse::class.java)
+                val errorMessage = errorBody.message ?: getApplication<Application>().getString(R.string.login_error_messege)
+                _showErrorDialog.postValue(errorMessage)
+            } else {
+                _showErrorDialog.postValue("Terjadi kesalahan: $jsonInString")
+            }
+        } catch (e: Exception) {
+            _showErrorDialog.postValue(getApplication<Application>().getString(R.string.login_failed_dialog))
         }
+    }
+
+    private fun saveUserData(response: LoginResponse) {
+        // Simpan data pengguna ke SharedPreferences atau tempat lain sesuai kebutuhan
     }
 
 }

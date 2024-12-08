@@ -29,19 +29,15 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         val userPref = UserPreference.getInstance(application.dataStore)
-
-        val factoryResult: LoginViewModelFactory =
-            LoginViewModelFactory.getInstance(
-                application,
-                userPref
-            )
-
+        val factoryResult: LoginViewModelFactory = LoginViewModelFactory.getInstance(application, userPref)
         loginViewModel = ViewModelProvider(this, factoryResult)[LoginViewModel::class.java]
 
         loginViewModel.showSuccessDialog.observe(this) {
@@ -56,10 +52,7 @@ class LoginActivity : AppCompatActivity() {
             if (isLoading) {
                 binding.progressIndicator.visibility = View.VISIBLE
                 binding.overlay.visibility = View.VISIBLE
-                window.setFlags(
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-                )
+                window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
             } else {
                 binding.progressIndicator.visibility = View.GONE
                 binding.overlay.visibility = View.GONE
@@ -68,58 +61,32 @@ class LoginActivity : AppCompatActivity() {
         }
 
         setMyButtonEnable()
-
         setUpAction()
-
         checkChanged()
-
-
-        supportActionBar?.hide()
-//        binding.btnRegister.setOnClickListener {
-//            val intent = Intent(this, RegisterActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//
-//        }
     }
 
     private fun checkChanged() {
         binding.edLoginEmail.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 setMyButtonEnable()
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
+            override fun afterTextChanged(s: Editable?) {}
         })
 
         binding.edLoginPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 setMyButtonEnable()
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
+            override fun afterTextChanged(s: Editable?) {}
         })
     }
 
     private fun setUpAction() {
         binding.btnRegister.setOnClickListener {
             intent = Intent(this, RegisterActivity::class.java)
-            startActivity(
-                intent
-            )
+            startActivity(intent)
             finish()
         }
 
@@ -129,8 +96,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        val email = binding.edLoginEmail.text.toString()
-        val password = binding.edLoginPassword.text.toString()
+        val email = binding.edLoginEmail.text.toString().trim()
+        val password = binding.edLoginPassword.text.toString().trim()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            showErrorDialog("Email dan Password tidak boleh kosong")
+            return
+        }
 
         loginViewModel.loginUser(email, password)
     }
@@ -151,7 +123,6 @@ class LoginActivity : AppCompatActivity() {
         alertDialog.show()
 
         val messageView = alertDialog.findViewById<TextView>(android.R.id.message)
-        @Suppress("DEPRECATION")
         messageView?.setTextColor(resources.getColor(R.color.black))
         alertDialog.window?.setBackgroundDrawableResource(R.color.white)
     }
@@ -159,13 +130,10 @@ class LoginActivity : AppCompatActivity() {
     private fun showErrorDialog(errorMessage: String) {
         val builder = AlertDialog.Builder(this)
             .setMessage(errorMessage)
-            .setPositiveButton(getString(R.string.confirmation)) { dialog, _ ->
-                dialog.dismiss()
-            }
+            .setPositiveButton(getString(R.string.confirmation)) { dialog, _ -> dialog.dismiss() }
         val alertDialog = builder.create()
         alertDialog.show()
         val messageView = alertDialog.findViewById<TextView>(android.R.id.message)
-        @Suppress("DEPRECATION")
         messageView?.setTextColor(resources.getColor(R.color.black))
         alertDialog.window?.setBackgroundDrawableResource(R.color.white)
     }
@@ -173,8 +141,6 @@ class LoginActivity : AppCompatActivity() {
     private fun setMyButtonEnable() {
         val loginEmailText = binding.edLoginEmail.text
         val loginPasswordText = binding.edLoginPassword.text
-        binding.btnLogin.isEnabled = (loginEmailText.toString()
-            .isNotEmpty() && loginEmailText != null && loginPasswordText.toString().isNotEmpty()
-                && loginPasswordText != null)
+        binding.btnLogin.isEnabled = (loginEmailText.toString().isNotEmpty() && loginPasswordText.toString().isNotEmpty())
     }
 }

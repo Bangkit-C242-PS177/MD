@@ -13,10 +13,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class RegisterViewModel (
+class RegisterViewModel(
     application: Application,
     private val registerRepository: RegisterRepository
-) : AndroidViewModel(application){
+) : AndroidViewModel(application) {
     private val _showSuccessDialog = MutableLiveData<String>()
     val showSuccessDialog: LiveData<String>
         get() = _showSuccessDialog
@@ -33,23 +33,31 @@ class RegisterViewModel (
         _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                registerRepository.registerUser(username, email, password, confirm_password)
+                val response = registerRepository.registerUser(username, email, password, confirm_password)
                 _loading.postValue(false)
-                _showSuccessDialog.postValue(getApplication<Application>().getString(R.string.register_succes))
+                _showSuccessDialog.postValue(response.message ?: getApplication<Application>().getString(R.string.register_succes))
             } catch (e: HttpException) {
                 _loading.postValue(false)
-                val jsonInString = e.response()?.errorBody()?.string()
-                val errorBody = Gson().fromJson(jsonInString, RegisterResponse::class.java)
-                val errorMessage =
-                    errorBody.message
-                        ?: getApplication<Application>().getString(R.string.register_error)
-                _showErrorDialog.postValue(errorMessage)
+                handleError(e)
             } catch (e: Exception) {
                 _loading.postValue(false)
-                _showErrorDialog.postValue(
-                    R.string.register_error_with_error_messege.toString()
-                )
+                _showErrorDialog.postValue(getApplication<Application>().getString(R.string.register_failed_dialog))
             }
+        }
+    }
+
+    private fun handleError(e: HttpException) {
+        try {
+            val jsonInString = e.response()?.errorBody()?.string()
+            if (jsonInString != null && jsonInString.startsWith("{")) {
+                val errorBody = Gson().fromJson(jsonInString, RegisterResponse::class.java)
+                val errorMessage = errorBody.message ?: getApplication<Application>().getString(R.string.register_error)
+                _showErrorDialog.postValue(errorMessage)
+            } else {
+                _showErrorDialog.postValue("Terjadi kesalahan: $jsonInString")
+            }
+        } catch (e: Exception) {
+            _showErrorDialog.postValue(getApplication<Application>().getString(R.string.register_failed_dialog))
         }
     }
 }
