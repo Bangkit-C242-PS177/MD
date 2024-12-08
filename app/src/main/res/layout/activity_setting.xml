@@ -140,6 +140,19 @@
             app:layout_constraintTop_toTopOf="@+id/btn_notification"
             tools:ignore="SpeakableTextPresentCheck,VisualLintButtonSize" />
 
+        <TextView
+            android:id="@+id/tv_notification_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/afacad"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@id/btn_notification"
+            app:layout_constraintEnd_toEndOf="@+id/btn_notification"
+            app:layout_constraintHorizontal_bias="0.834"
+            app:layout_constraintStart_toStartOf="@+id/btn_notification"
+            app:layout_constraintTop_toTopOf="@+id/btn_notification"
+            app:layout_constraintVertical_bias="0.485" />
+
         <Button
             android:id="@+id/btn_language"
             android:layout_width="match_parent"
