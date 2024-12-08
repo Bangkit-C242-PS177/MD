@@ -100,6 +100,9 @@
     <string name="register_error_with_error_messege">"Register Error "</string>
     <string name="confirmation">Confirm</string>
     <string name="confirmationno">noooooo</string>
+    <string name="login_succes_dialog">Login Succes</string>
+    <string name="login_error_messege">Erorr in Login</string>
+    <string name="login_failed_dialog">failed login</string>
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
