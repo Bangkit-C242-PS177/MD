@@ -40,9 +40,20 @@ class LoginViewModel (
             try {
                 val loginRequest = ApiService.LoginRequest(email, password)
                 val response = loginRepository.login(loginRequest)
+                val loginResult = response.user
+                val userEmail = loginResult?.email
+                val username = loginResult?.username
+                val userToken = response.accessToken
                 _loading.postValue(false)
                 _showSuccessDialog.postValue(getApplication<Application>().getString(R.string.login_succes_dialog))
-                saveUserData(response)
+                userToken?.let { token ->
+                    userEmail?.let { email ->
+                        username?.let { name ->
+                            saveUserData(name, email, token)
+                        }
+                    }
+                }
+//                saveUserData(response)
             } catch (e: HttpException) {
                 _loading.postValue(false)
                 handleError(e)
@@ -68,8 +79,10 @@ class LoginViewModel (
         }
     }
 
-    private fun saveUserData(response: LoginResponse) {
-        // Simpan data pengguna ke SharedPreferences atau tempat lain sesuai kebutuhan
+    private fun saveUserData(userEmail: String, username: String, userToken: String) {
+        viewModelScope.launch {
+            userPreference.saveUserData(token = userToken, email = userEmail , name = username)
+        }
     }
 
 }
