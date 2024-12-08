@@ -1,5 +1,6 @@
 package com.example.urkins.data.retrofit
 
+import com.example.urkins.data.response.LoginResponse
 import com.example.urkins.data.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -14,4 +15,11 @@ interface ApiService {
         @Field("password") password: String,
         @Field("confirm_password") confirm_password: String
     ): RegisterResponse
+
+    @FormUrlEncoded
+    @POST("auth/login")
+    suspend fun loginUser(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): LoginResponse
 }
