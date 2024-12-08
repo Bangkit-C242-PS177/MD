@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.R
+import com.example.urkins.data.pref.UserPreference
+import com.example.urkins.data.pref.dataStore
 import com.example.urkins.databinding.FragmentAnalyzeBinding
 import com.example.urkins.ui.activity.camera.CameraActivity
 import com.example.urkins.ui.activity.login.LoginActivity
@@ -25,7 +27,10 @@ import com.google.android.material.snackbar.Snackbar
 class AnalyzeFragment : Fragment() {
 
     private var _binding: FragmentAnalyzeBinding? = null
-    private val analyzeViewModel: AnalyzeViewModel by viewModels()
+//    private val analyzeViewModel: AnalyzeViewModel by viewModels {
+//        AnalyzeViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
+//    }
+    private lateinit var analyzeViewModel: AnalyzeViewModel
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -61,8 +66,14 @@ class AnalyzeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val analyzeViewModel =
-            ViewModelProvider(this).get(AnalyzeViewModel::class.java)
+//        var analyzeViewModel =
+//            ViewModelProvider(this).get(AnalyzeViewModel::class.java)
+
+        // ViewModel initialized here with a valid context
+        analyzeViewModel = ViewModelProvider(
+            this,
+            AnalyzeViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
+        )[AnalyzeViewModel::class.java]
 
         _binding = FragmentAnalyzeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -74,6 +85,7 @@ class AnalyzeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val userPreferences = UserPreference.getInstance(requireContext().dataStore)
 
         binding.btnTakePicture.setOnClickListener { cekToken() }
         if (!allPermissionGranted()) {
@@ -81,8 +93,10 @@ class AnalyzeFragment : Fragment() {
         }
     }
 
+
+
     private fun cekToken() {
-            val userToken = false
+        analyzeViewModel.isUserTokenAvailable.observe(viewLifecycleOwner) { userToken ->
             if (userToken) {
                 val intent = Intent(requireContext(), CameraActivity::class.java)
                 launchCameraActivity.launch(intent)
@@ -90,7 +104,7 @@ class AnalyzeFragment : Fragment() {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)
             }
-    }
+    }}
 
     private fun showImage() {
         analyzeViewModel.selectUriImage.value?.let {

@@ -57,5 +57,4 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             }
         }
     }
-
 }
