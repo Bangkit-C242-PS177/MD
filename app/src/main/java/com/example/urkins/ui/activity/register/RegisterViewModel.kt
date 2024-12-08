@@ -29,11 +29,11 @@ class RegisterViewModel (
     val loading: LiveData<Boolean>
         get() = _loading
 
-    fun registerUser(name: String, email: String, password: String, confirm_password: String) {
+    fun registerUser(username: String, email: String, password: String, confirm_password: String) {
         _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                registerRepository.registerUser(name, email, password, confirm_password)
+                registerRepository.registerUser(username, email, password, confirm_password)
                 _loading.postValue(false)
                 _showSuccessDialog.postValue(getApplication<Application>().getString(R.string.register_succes))
             } catch (e: HttpException) {

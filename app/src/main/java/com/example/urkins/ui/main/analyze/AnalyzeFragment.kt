@@ -82,7 +82,7 @@ class AnalyzeFragment : Fragment() {
     }
 
     private fun cekToken() {
-            val userToken = true
+            val userToken = false
             if (userToken) {
                 val intent = Intent(requireContext(), CameraActivity::class.java)
                 launchCameraActivity.launch(intent)

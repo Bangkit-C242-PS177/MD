@@ -33,10 +33,9 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
 
-        val factoryResult: RegisterViewModelFactory =
-            RegisterViewModelFactory.getInstance(
-                application
-            )
+        val factoryResult: RegisterViewModelFactory = RegisterViewModelFactory.getInstance(
+            application
+        )
         registerViewModel = ViewModelProvider(this, factoryResult)[RegisterViewModel::class.java]
 
         registerViewModel.showSuccessDialog.observe(this) {
@@ -113,6 +112,21 @@ class RegisterActivity : AppCompatActivity() {
             }
 
         })
+
+        binding.edRegisterConfirmPassword.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                setMyButtonEnable()
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
     }
 
     private fun setUpAction() {
@@ -141,15 +155,13 @@ class RegisterActivity : AppCompatActivity() {
 
     @Suppress("DEPRECATION")
     private fun showDialog(message: String) {
-        val builder = AlertDialog.Builder(this)
-            .setMessage(message)
+        val builder = AlertDialog.Builder(this).setMessage(message)
             .setPositiveButton(R.string.confirmation) { dialog, _ ->
                 dialog.dismiss()
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
-            }
-            .setCancelable(false)
+            }.setCancelable(false)
         val alertDialog = builder.create()
         alertDialog.show()
 
@@ -160,9 +172,8 @@ class RegisterActivity : AppCompatActivity() {
 
     @Suppress("DEPRECATION")
     private fun showErrorDialog(errorMessage: String) {
-        val builder = AlertDialog.Builder(this)
-            .setMessage(errorMessage)
-            .setPositiveButton(R.string.confirmation) { dialog, _ ->
+        val builder = AlertDialog.Builder(this).setMessage(errorMessage)
+            .setPositiveButton(R.string.confirmationno) { dialog, _ ->
                 dialog.dismiss()
             }
         val alertDialog = builder.create()
@@ -180,6 +191,6 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegister.isEnabled =
             (registerEmailText.toString().isNotEmpty() && registerPasswordText.toString()
                 .isNotEmpty() && registerNameText.toString()
-                .isNotEmpty() && registerNameText != null && registerEmailText != null && registerPasswordText != null)
+                .isNotEmpty() && registerConfirmPasswordText.toString().isNotEmpty() && registerNameText != null && registerEmailText != null && registerPasswordText != null && registerConfirmPasswordText != null)
     }
 }
