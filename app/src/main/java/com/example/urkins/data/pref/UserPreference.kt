@@ -13,7 +13,7 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "us
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
     private val userToken = stringPreferencesKey("user_token")
-    private val userId = stringPreferencesKey("user_id")
+    private val userEmail = stringPreferencesKey("user_email")
     private val userName = stringPreferencesKey("user_name")
 
     suspend fun getUserToken(): String {
@@ -23,7 +23,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     suspend fun getUserId(): String {
         val preferences = dataStore.data.first()
-        return preferences[userId] ?: ""
+        return preferences[userEmail] ?: ""
     }
 
     suspend fun getUserName(): String {
@@ -31,10 +31,10 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         return preferences[userName] ?: ""
     }
 
-    suspend fun saveUserData(token: String, id: String, name: String) {
+    suspend fun saveUserData(token: String, email: String, name: String) {
         dataStore.edit { preferences ->
             preferences[userToken] = token
-            preferences[userId] = id
+            preferences[userEmail] = email
             preferences[userName] = name
         }
     }
