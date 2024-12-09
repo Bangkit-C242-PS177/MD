@@ -14,24 +14,22 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.MainActivity
-import com.example.urkins.data.MyApplication
 import com.example.urkins.R
 import com.example.urkins.data.pref.UserPreference
+import com.example.urkins.data.pref.dataStore
 import com.example.urkins.databinding.ActivityLoginBinding
 import com.example.urkins.ui.activity.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
-    private lateinit var userPreference: UserPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        userPreference = (application as MyApplication).userPreference
+        supportActionBar?.hide()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -39,7 +37,8 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        val factoryResult: LoginViewModelFactory = LoginViewModelFactory.getInstance(application, userPreference)
+        val userPref = UserPreference.getInstance(application.dataStore)
+        val factoryResult: LoginViewModelFactory = LoginViewModelFactory.getInstance(application, userPref)
         loginViewModel = ViewModelProvider(this, factoryResult)[LoginViewModel::class.java]
 
         loginViewModel.showSuccessDialog.observe(this) {
@@ -114,7 +113,9 @@ class LoginActivity : AppCompatActivity() {
             .setMessage(message)
             .setPositiveButton(getString(R.string.confirmation)) { dialog, _ ->
                 dialog.dismiss()
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                }
                 startActivity(intent)
                 finish()
             }
@@ -141,10 +142,6 @@ class LoginActivity : AppCompatActivity() {
     private fun setMyButtonEnable() {
         val loginEmailText = binding.edLoginEmail.text
         val loginPasswordText = binding.edLoginPassword.text
-        if (loginEmailText != null) {
-            if (loginPasswordText != null) {
-                binding.btnLogin.isEnabled = loginEmailText.isNotEmpty() && loginPasswordText.isNotEmpty()
-            }
-        }
+        binding.btnLogin.isEnabled = (loginEmailText.toString().isNotEmpty() && loginPasswordText.toString().isNotEmpty())
     }
 }

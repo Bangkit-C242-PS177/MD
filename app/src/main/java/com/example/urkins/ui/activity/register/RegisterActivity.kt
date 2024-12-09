@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        supportActionBar?.hide()
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
