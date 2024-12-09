@@ -22,19 +22,16 @@ import com.example.urkins.data.pref.dataStore
 import com.example.urkins.databinding.FragmentAnalyzeBinding
 import com.example.urkins.ui.activity.camera.CameraActivity
 import com.example.urkins.ui.activity.login.LoginActivity
+import com.example.urkins.ui.activity.result.ResultActivity
+import com.example.urkins.ui.activity.result.ResultActivity.Companion.EXTRA_IMAGE
 import com.google.android.material.snackbar.Snackbar
 
 class AnalyzeFragment : Fragment() {
 
     private var _binding: FragmentAnalyzeBinding? = null
-//    private val analyzeViewModel: AnalyzeViewModel by viewModels {
-//        AnalyzeViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
-//    }
+    private val binding get() = _binding!!
     private lateinit var analyzeViewModel: AnalyzeViewModel
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
     private val launchCameraActivity = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -42,7 +39,8 @@ class AnalyzeFragment : Fragment() {
             val uri = result.data?.getStringExtra("image_uri")?.let { Uri.parse(it) }
             uri?.let {
                 analyzeViewModel.setSelectImageUri(it)
-                showImage()
+//                showImage()
+                showImagePreview()
             }
         } else {
             Log.d(getString(R.string.camera_title), getString(R.string.failed_take_photo))
@@ -66,33 +64,32 @@ class AnalyzeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        var analyzeViewModel =
-//            ViewModelProvider(this).get(AnalyzeViewModel::class.java)
-
-        // ViewModel initialized here with a valid context
         analyzeViewModel = ViewModelProvider(
             this,
             AnalyzeViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
         )[AnalyzeViewModel::class.java]
-
         _binding = FragmentAnalyzeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        return root
-
-
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val userPreferences = UserPreference.getInstance(requireContext().dataStore)
 
+        observeViewModel()
+        setupObserver()
+
         binding.btnTakePicture.setOnClickListener { cekToken() }
         if (!allPermissionGranted()) {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
-    }
 
+        binding.btnAnalyze.setOnClickListener {
+            analyzeViewModel.selectUriImage.value?.let { uri ->
+                analyzeViewModel.uploadImage(uri, 35)
+            } ?: showSnackBar(getString(R.string.no_image_selected))
+        }
+    }
 
 
     private fun cekToken() {
@@ -104,11 +101,49 @@ class AnalyzeFragment : Fragment() {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)
             }
-    }}
+
+        }
+        analyzeViewModel.checkUserToken(true)
+    }
+
+    private fun observeViewModel() {
+//        binding.progressBar.visibility = View.VISIBLE
+        analyzeViewModel.skinResponse.observe(viewLifecycleOwner) { response ->
+            val skinConditions = response.skinConditions.flatten() as ArrayList<String>
+            val skinType = response.skinType.flatten() as ArrayList<String>
+            val intent = Intent(requireContext(), ResultActivity::class.java).apply {
+                putExtra("skin_conditions", skinConditions)
+                putExtra("skin_type", skinType)
+                putExtra(EXTRA_IMAGE, analyzeViewModel.selectUriImage.value)
+            }
+            startActivity(intent)
+        }
+
+        analyzeViewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
+            showSnackBar(errorMessage)
+        }
+    }
+
+    private fun setupObserver() {
+        analyzeViewModel.selectUriImage.observe(viewLifecycleOwner) {
+            showImagePreview()
+            if (it != null) {
+                binding.btnAnalyze.isEnabled = true
+            }
+        }
+    }
 
     private fun showImage() {
         analyzeViewModel.selectUriImage.value?.let {
             binding.previewImage.setImageURI(it)
+        }
+    }
+
+    private fun showImagePreview() {
+        analyzeViewModel.selectUriImage.observe(viewLifecycleOwner) { uri ->
+            uri?.let {
+                binding.previewImage.setImageURI(it)
+            }
         }
     }
 
@@ -129,6 +164,7 @@ class AnalyzeFragment : Fragment() {
     }
 
     companion object {
+        const val EXTRA_IMAGE = "extra_image"
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
 }
