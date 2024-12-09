@@ -105,6 +105,7 @@
     <string name="login_failed_dialog">failed login</string>
     <string name="register_failed_dialog">Register failed</string>
     <string name="no_image_selected">no image selected</string>
+    <string name="product_category">Category of product</string>
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
@@ -164,5 +165,77 @@
         <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1609550147/attached_image/kulit-cermin-kesehatan-tubuh-0-alodokter.jpg</item>
         <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1609079056/attached_image/cara-memutihkan-kulit-dan-risiko-yang-menyertainya-0-alodokter.jpg</item>
         <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1595824412/attached_image/ini-manfaat-minyak-zaitun-untuk-wajah-berjerawat-0-alodokter.jpg</item>
+    </string-array>
+
+    <string-array name="data_skincare_photo">
+        <item>https://img.id.my-best.com/product_images/527234d1cead7840fb752a0eb2c48da7.png?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=3fd2f9aa6c3518bca147edb3aa8b4c20</item>
+        <item>https://img.id.my-best.com/product_images/65b54f2f3b52f5c80049e8ea9636ea4e.png?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=5e5bb1563dc140d1703c027acd69cbdb</item>
+        <item>https://img.id.my-best.com/product_images/b71034348d702be7326417197baa94a3.jpg?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=b0ca7844b37986e032a80f186aabe05b</item>
+        <item>https://img.id.my-best.com/product_images/93b2c37a2e7eedab7f65ee0f244f9914.png?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=03f3f802351cd0d4b6a3c857b9d7870e</item>
+        <item>https://img.id.my-best.com/product_images/f5c94c94bbdc43d81aae78821653c6e3.png?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=c3003f9c47ca58e8464d9f6e03393209</item>
+        <item>https://img.id.my-best.com/product_images/f143c379cc320f187dd812442ee5c68b.jpeg?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=f1fe54927801a5c09fb91d3c5360a838</item>
+        <item>https://img.id.my-best.com/product_images/94d23f7c801aff8f3fd5d78d39a0ed61.jpeg?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=6966df0e31ad62d62b2135367a3b16a4</item>
+        <item>https://img.id.my-best.com/product_images/525adf02eb1446b9def93edd8d4a9b59.png?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=e612bd355a78f670e60c389da751650b</item>
+        <item>https://img.id.my-best.com/product_images/23b0b2156fc19d3ed6affc32608baeb7.jpg?ixlib=rails-4.3.1&amp;q=70&amp;lossless=0&amp;w=800&amp;h=800&amp;fit=clip&amp;s=0d1937f8de21d730cfdc9ea22eee98ea</item>
+    </string-array>
+
+    <string-array name="data_skincare_name">
+        <item>Wardah ｜ Hydra Rose NMF Amino + Pentavitin Barrier Replenish pH 5.5 Gel Cleanser</item>
+        <item>SKINTIFIC ｜ 4D Hyaluronic Acid Hydrating Serum</item>
+        <item>SOMETHINC SUPPLE POWER Hyaluronic9+ Onsen Essence Toner</item>
+        <item>SKINTIFIC ｜ 5X Ceramide Low pH Cleanser</item>
+        <item>Wardah ｜ Acnederm Acne Care Serum</item>
+        <item>SOMETHINC ｜ Low pH Gentle Jelly Cleanser</item>
+        <item>SKINTIFIC ｜ 4D Hyaluronic Acid Barrier Essence Toner</item>
+        <item>Wardah | Nature Daily Hydramild Toner Essence</item>
+        <item>SOMETHINC ｜ Calm Down! Skinpair Barrier Serum</item>
+    </string-array>
+
+    <string-array name="data_skincare_category">
+        <item>Face Wash</item>
+        <item>Serum</item>
+        <item>Toner</item>
+        <item>Face Wash</item>
+        <item>Serum</item>
+        <item>Face Wash</item>
+        <item>Toner</item>
+        <item>Toner</item>
+        <item>Serum</item>
+    </string-array>
+
+    <string-array name="data_skincare_description">
+        <item>This facial wash from Wardah uses Acid Mantle ExpertTM Technology formulated with NMF Amino. The formula can gently cleanse the skin. This product is also claimed to optimally moisturize the face after 7 days of use. In fact, your skin elasticity will increase within 14 days of use. That way, the skin looks healthier and well hydrated.</item>
+        <item>Dry skin often experiences itching, stinging and, worst of all, peeling. If you are in this situation, you need moisturizers and serums with high moisturizing content. You can consider SKINTIFIC 4D Hyaluronic Acid Hydrating Serum. This dry skin serum is high in hyaluronic acid for deep hydration. As a result, the skin is free from pulling and flaking. The water content in this hydrating serum can also help lock in skin moisture for up to 48 hours.</item>
+        <item>After exfoliation, hydrate your skin immediately to minimize the risk of irritation. This SOMETHINC product is the best choice to boost skin moisture and balance pH after exfoliation. Its innovative formula combines the power of nine types of hyaluronic acid, creating a gentle and soothing essence toner. With a light texture, it absorbs quickly and provides hydration for all skin types, especially dry and dull ones. It not only nourishes the skin, but also gives it a more radiant and healthy look. It also provides a refreshing experience with its soft fragrance.</item>
+        <item>Does your facial wash leave your skin feeling pulled, slippery or even itchy? We suggest switching to this product immediately. As the name suggests, SKINTIFIC 5X Ceramide Low pH Cleanser contains five types of ceramides that moisturize and strengthen your skin barrier. This product will not leave your skin feeling dry after you use it. The creamy texture feels soft on the skin.</item>
+        <item>Wardah Acnederm Acne Care Serum is specially designed to treat acne quickly. Thanks to the main ingredients of BHA and Centella asiatica, this serum works effectively to reduce inflammation and clear clogged pores. This combination of active ingredients can help relieve acne in just 3 days. In addition, this product contains witch hazel extract that works to control excess oil production, preventing new acne breakouts. If you want to get rid of acne instantly, use this serum morning and night.</item>
+        <item>If your skin is experiencing irritation and inflammation due to acne, treat it with this product. SOMETHINC Low pH Gentle Jelly Cleanser contains peppermint which provides a cooling sensation on the skin. Your skin that feels hot or uncomfortable will be refreshed when using this product. The content of Japanese mugwort and Centella asiatica in it also treats redness and irritation that occurs on your skin.</item>
+        <item>For those of you who need deep hydration for your skin, you can not miss these product recommendations. SKINTIFIC 4D Hyaluronic Acid Barrier Essence Toner contains 4D hyaluronic acid, ceramide, and Centella asiatica. The 4D hyaluronic acid content will provide moisture and lock it in the skin so that the facial skin remains moisturized for up to 18 hours.In addition, the ceramide and Centella asiatica in this toner will help maintain the skin barrier and soothe the skin. The texture is lightweight and easily absorbs into the deepest pores of your face.</item>
+        <item>This toner from Wardah is worth considering if your skincare budget is fairly thin. The price is fairly cheap, but this toner can moisturize, soften, and soothe problematic skin. This local toner does not contain alcohol at all, making it suitable for those of you who are sensitive to alcohol. It also has a pH balance formula, allantoin, and witch hazel that moisturizes, soothes, and refines skin pores. Complete benefits at an affordable price!</item>
+        <item>Here iss a facial serum for sensitive skin that can be used by teenagers, starting from the age of 11. With a pH of 5.5 and low-irritant ingredients, this serum is suitable for all skin types, including sensitive skin. Its formulation of CalmDown®, Centella asiatica Madagascar, and 5X Growth Factor Peptides calms redness and improves skin barrier. Then, its lightweight, non-sticky and absorbent texture makes it convenient for daily use.</item>
+    </string-array>
+
+    <string-array name="data_skincare_how_to_use">
+        <item>Pour an appropriate amount into wet palms and rub into a lather. Apply to face gently. Rinse thoroughly. Use in the morning and at night.</item>
+        <item>1. Use on a clean face\n2. Put a few drops on your hand\n3. Apply to the face evenly, can be rubbed to the neck\n4. Allow the serum to penetrate the skin optimally\n5. For better results, the serum can be used both day and night.\n6. Morning use should be followed by sunscreen application 6. </item>
+        <item>After washing your face, spray Supple Power HYAluronic9+ Onsen Essence Toner into the palm of your hand. Then gently pat the entire face and neck area using fingertips to aid absorption. Continue with the next skincare steps: Serum- Moisturizer- Oil Serum- Sunscreen.</item>
+        <item>1. Wet the face and take a sufficient amount of product.\n2. Massage it into your face in circular motions.\n3. Rinse thoroughly.</item>
+        <item>1. Take enough Wardah Acnederm Acne Care Serum.\n2. Apply evenly on the face\n3. Use after using toner\n4. For optimal results, use 2x a day (morning and night)</item>
+        <item>1. Wash your face with water, then pour an almond-sized amount of cleanser into the palm of your hand.\n2. Gently rub and blend it all over your face in circular motions for 10 seconds.\n3. Rinse and pat dry, and proceed to the toner step</item>
+        <item>1. Can be used directly on the face, take enough toner.\n2. Can be used with the CSM method, which is to pour the toner onto a cotton pad and compress the face for 5–10 minutes as needed.\n3. Can be used with a cotton pad and gently wipe the face.\n4. Can be used in the morning and evening.</item>
+        <item>Pour on a cotton pad to taste, then wipe all over the face</item>
+        <item>1. Pump serum 3–5 times into palm of hand\n2. Smooth onto face and neck, then gently massage in outward and upward motions\n3. Wait 1–3 minutes for the product to fully absorb\n4. Layer with Somethinc serum of choice and continue with Calm Down! R-Cover Cream\n5. Use every morning and night</item>
+    </string-array>
+
+    <string-array name="data_skincare_ingredients">
+        <item>- NMF Amino\n- Pentavitin\n- Sodium laureth sulfate\n- cocamidopropyl betaine\n- decyl glucoside\n- sodium lauroyl sarcosinate\n- Glycerin\n- propylene glycol\n- sodium PCA\n- saccharide isomerate</item>
+        <item>AQUA,1,2-BUTANEDIOL,PEG/PPG/POLYBUTYLENE GLYCOL-8/5/3 GLYCERIN,BETAINE,SODIUM HYALURONATE,ETHYLHEXYLGLYCERIN,HYDROLYZED SODIUM HYALURONATE,SODIUM ACETYLATED HYALURONATE,SODIUM HYALURONATE CROSSPOLYMER,PEG/PPG-17/6 COPOLYMER,GLYCERIN,GLYCERYL GLUCOSIDE,CREATINE,PANTHENOL,ACRYLATES/C10-30 ALKYL ACRYLATECROSSPOLYMER,PROPYLENE GLYCOL,PALMITOYL TETRAPEPTIDE-7,PALMITOYL PENTAPEPTIDE-4,PALMITOYL TRIPEPTIDE-1,CARNOSINE,CETYL-PG HYDROXYETHYL PALMITAMIDE,CERAMIDE EOP,CERAMIDE NS/CERAMIDE NG,CERAMIDE NP,CERAMIDE AS,CERAMIDE AP,MARIS AQUA,LAMINARIA DIGITATA EXTRACT,AVENA SATIVA (OAT) KERNEL EXTRACT,HYDROGENATED LECITHIN,TOCOPHEROL,ALLANTOIN,GLYCERYL ACRYLATE/ACRYLIC ACIDCOPOLYMER,PVM/MA COPOLYMER..</item>
+        <item>Onsen Sui: 79% Onsen Belgium Hot Spring Water, Chondrus Crispus/ Carrageenan Extract, Squalane, 9 Layers of Hyaluronic Acid, Betaine, Niacinamide (Pharmaceutical Grade)</item>
+        <item>AIR, GLISERIN, SODIUM COCOYL GLYCINATE, LAURYL BETAINE, HYDROXYPROPYL STARCH PHOSPHATE, ASAM SITRIK, PEG-60 GLYCERYL ISOSTEARATE, SODIUM CHLORIDE, GLYCERYL STEARATE SE, COCO-GLUCOSIDE, PHENOXYETHANOL, SODIUM COCOYL ISETHIONATE, SODIUM PHYTATE , ETILHEXYLGLYCERIN, POLYQUATERNIUM-7, 1,2-HEXANEDIOL, EKSTRAK KULIT QUILLAJA SAPONARIA, SODIUM BENZOAT, CERAMIDE NP, CERAMIDE EOP, ASAM HYALURONIC, CERAMIDE AP, EKSTRAK CENTELLA ASIATICA, NIACINAMIDE, CERAMIDE AS, PANTHENOL, CERAMIDE NS, ASAM SALICYLIC, ARGININE, BUTYLENE GLYCOL, LECITH TERHIDROGENASI DI , CETEARYL ALCOHOL, TOCOPHEROL, STEARIC ACID, ASCORBIC ACID, SODIUM HYALURONATE, KOLESTEROL, PHYTOSPHINGOSINE</item>
+        <item>Azeclair™, Salicylic Acid, Hyaluronic Acid, Allantoin</item>
+        <item>Potassium laureth phosphate, potassium cocoyl glutamate, sodium cocoyl glutamate, lauryl hydroxysultaine, coco-glucoside, Glycerin, butylene glycol, Centella asiatica leaf water, Quillaja saponaria bark extract</item>
+        <item>Ceramide, 4D Hyaluronic Acid, Centella Asiatica</item>
+        <item>Aloe vera, allantoin</item>
+        <item>MADAGASCAR CENTELLA ASIATICA (MADECASSOSIDE), CalmDown®, Panthenol, 5X Growth Factor Peptides</item>
     </string-array>
 </resources>
