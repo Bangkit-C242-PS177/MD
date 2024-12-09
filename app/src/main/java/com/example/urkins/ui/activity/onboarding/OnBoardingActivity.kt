@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.urkins.MainActivity
 import com.example.urkins.R
 import com.example.urkins.databinding.ActivityOnBoardingBinding
+import com.example.urkins.ui.activity.login.LoginActivity
 
 class OnBoardingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOnBoardingBinding
@@ -29,7 +30,7 @@ class OnBoardingActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         binding.btnGetStarted.setOnClickListener {
-            intent = Intent(this, MainActivity::class.java)
+            intent = Intent(this, LoginActivity::class.java)
             startActivity(
                 intent
             )

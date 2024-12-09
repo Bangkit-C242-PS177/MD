@@ -104,6 +104,7 @@
     <string name="login_error_messege">Erorr in Login</string>
     <string name="login_failed_dialog">failed login</string>
     <string name="register_failed_dialog">Register failed</string>
+    <string name="no_image_selected">no image selected</string>
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
