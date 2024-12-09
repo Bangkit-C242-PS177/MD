@@ -104,7 +104,8 @@ class AnalyzeFragment : Fragment() {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)
             }
-    }}
+        }
+    }
 
     private fun showImage() {
         analyzeViewModel.selectUriImage.value?.let {

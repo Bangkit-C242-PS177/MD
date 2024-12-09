@@ -14,6 +14,7 @@ import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import android.util.Log
 
 class LoginViewModel (
     application: Application,
@@ -81,7 +82,8 @@ class LoginViewModel (
 
     private fun saveUserData(userEmail: String, username: String, userToken: String) {
         viewModelScope.launch {
-            userPreference.saveUserData(token = userToken, email = userEmail , name = username)
+            userPreference.saveUserData(token = userToken, email = userEmail, name = username)
+            Log.d("UserPreference", "Token disimpan: $userToken")
         }
     }
 

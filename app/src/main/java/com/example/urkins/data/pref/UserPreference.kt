@@ -1,6 +1,7 @@
 package com.example.urkins.data.pref
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -18,7 +19,9 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     suspend fun getUserToken(): String {
         val preferences = dataStore.data.first()
-        return preferences[userToken] ?: ""
+        val token = preferences[userToken] ?: ""
+        Log.d("UserPreference", "Token diambil: $token")
+        return token
     }
 
     suspend fun getUserId(): String {
@@ -37,6 +40,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             preferences[userEmail] = email
             preferences[userName] = name
         }
+        Log.d("UserPreference", "Data disimpan: Token=$token, Email=$email, Name=$name")
     }
 
     suspend fun clearUserData() {
