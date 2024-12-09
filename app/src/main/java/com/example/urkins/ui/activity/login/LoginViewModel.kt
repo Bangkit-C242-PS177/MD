@@ -40,10 +40,10 @@ class LoginViewModel (
             try {
                 val loginRequest = ApiService.LoginRequest(email, password)
                 val response = loginRepository.login(loginRequest)
+                val userToken = response.accessToken
                 val loginResult = response.user
                 val userEmail = loginResult?.email
                 val username = loginResult?.username
-                val userToken = response.accessToken
                 _loading.postValue(false)
                 _showSuccessDialog.postValue(getApplication<Application>().getString(R.string.login_succes_dialog))
                 userToken?.let { token ->
