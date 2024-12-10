@@ -97,10 +97,12 @@ class AnalyzeFragment : Fragment() {
         analyzeViewModel.getSession().observe(viewLifecycleOwner) { user ->
             if (!user.isLogin) {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
-                launchCameraActivity.launch(intent)
+//                launchCameraActivity.launch(intent)
+                startActivity(intent)
             } else {
                 val intent = Intent(requireContext(), CameraActivity::class.java)
-                startActivity(intent)
+//                startActivity(intent)
+                launchCameraActivity.launch(intent)
             }
 
         }
