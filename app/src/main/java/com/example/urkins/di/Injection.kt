@@ -5,10 +5,12 @@ import com.example.urkins.data.local.room.HistoryDatabase
 //import com.example.urkins.data.pref.UserPreference
 import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
+import com.example.urkins.data.repository.HistoryRepository
 import com.example.urkins.data.repository.LoginRepository
 import com.example.urkins.data.repository.RegisterRepository
 import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.data.retrofit.ApiConfig
+import com.example.urkins.util.AppExecutors
 import kotlinx.coroutines.runBlocking
 
 object Injection {

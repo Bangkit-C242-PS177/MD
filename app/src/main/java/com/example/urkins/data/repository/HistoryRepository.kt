@@ -3,6 +3,7 @@ package com.example.urkins.data.repository
 import androidx.lifecycle.LiveData
 import com.example.urkins.data.local.entity.HistoryEntity
 import com.example.urkins.data.local.room.HistoryDao
+import com.example.urkins.util.AppExecutors
 
 class HistoryRepository(
     private val historyDao: HistoryDao,
