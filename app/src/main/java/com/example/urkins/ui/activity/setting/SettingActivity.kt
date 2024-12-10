@@ -1,6 +1,7 @@
 package com.example.urkins.ui.activity.setting
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -21,6 +22,7 @@ import com.example.urkins.data.worker.NotificationWorker
 import com.example.urkins.databinding.ActivitySettingBinding
 import com.example.urkins.ui.activity.login.LoginViewModel
 import com.example.urkins.ui.activity.login.LoginViewModelFactory
+import com.example.urkins.ui.activity.onboarding.OnBoardingActivity
 import java.util.concurrent.TimeUnit
 
 @Suppress("DEPRECATION")
@@ -75,11 +77,36 @@ class SettingActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        binding.btnLogout.setOnClickListener {
-            settingViewModel.logout()
-        }
+        logoutUser()
+
+//        binding.btnLogout.setOnClickListener {
+//            settingViewModel.logout()
+//        }
 
         updateNotificationStatus()
+    }
+
+    private fun logoutUser() {
+        binding.btnLogout.setOnClickListener {
+            dialogConfirmationLogout()
+        }
+    }
+
+    private fun dialogConfirmationLogout() {
+        AlertDialog.Builder(this).apply {
+            setTitle(getString(R.string.logout_title))
+            setMessage(getString(R.string.logout_confirmation))
+            setPositiveButton(getString(R.string.yes)) { _, _ ->
+                settingViewModel.logout() // Pastikan menggunakan settingViewModel
+                val intent = Intent(this@SettingActivity, OnBoardingActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish() // Menggunakan finish() langsung
+            }
+            setNegativeButton(getString(R.string.no), null)
+            create()
+            show()
+        }
     }
 
     private fun checkAndRequestNotificationPermission() {

@@ -25,13 +25,14 @@ class SettingViewModelFactory(private val userPreference: UserPreference2, priva
 
         @JvmStatic
         fun getInstance(
+//            context: Context,
             userPreference: UserPreference2,
             repository: UserRepository
         ): SettingViewModelFactory {
             if (INSTANCE == null) {
                 synchronized(SettingViewModelFactory::class.java) {
                     INSTANCE = SettingViewModelFactory(
-                        userPreference,repository,)
+                        userPreference,repository, )
                 }
             }
             return INSTANCE as SettingViewModelFactory
