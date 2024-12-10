@@ -97,8 +97,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        val email = binding.edLoginEmail.text.toString().trim()
-        val password = binding.edLoginPassword.text.toString().trim()
+        val email = binding.edLoginEmail.text.toString()
+        val password = binding.edLoginPassword.text.toString()
 
         if (email.isEmpty() || password.isEmpty()) {
             showErrorDialog("Email dan Password tidak boleh kosong")
