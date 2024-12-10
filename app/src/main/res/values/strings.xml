@@ -111,6 +111,7 @@
     <string name="title_guest_text">Your recent skincare recommendation will appear here. Let\'s analyze your skin first and start your journey to healthier skin</string>
     <string name="title_welcome_user">UrKins\nPersonalized Skincare\nRekommendation Application</string>
     <string name="description_welcome_user">UrKins empowers you to care for your skin \nwith AI-powered analysis, personalized \nproduct suggestions, and clear guidance \non skincare ingredients. Unlock the path \nto radiant, healthy skin designed just for you.</string>
+    <string name="register_info">By registering, you are  agreeing to our \nTerm of use and Privacy policy</string>
 
 
     <string-array name="data_article_title">

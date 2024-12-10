@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         app:cardCornerRadius="40dp"
@@ -33,36 +33,39 @@
             <com.example.urkins.ui.custom.EditTextEmail
                 android:id="@+id/ed_login_email"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="32dp"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/black"
-                android:textColorHint="@color/pink"
+                android:background="@drawable/edit_text_background"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="10dp"
+                android:paddingStart="25dp"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                tools:ignore="RtlSymmetry,TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
 
             <com.example.urkins.ui.custom.EditTextPassword
                 android:id="@+id/ed_login_password"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="32dp"
+                android:background="@drawable/edit_text_background"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="10dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/pink"
-                android:textColorHint="@color/pink"
+                android:paddingStart="25dp"
+                android:textColorHighlight="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ed_login_email"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                tools:ignore="RtlSymmetry,TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
 
 
             <com.example.urkins.ui.custom.ButtonLogin
@@ -70,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="32dp"
                 android:enabled="false"
                 android:text="@string/login"
