@@ -14,6 +14,8 @@ import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
 import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.databinding.FragmentUserBinding
+import com.example.urkins.ui.activity.login.LoginActivity
+import com.example.urkins.ui.activity.register.RegisterActivity
 import com.example.urkins.ui.activity.setting.SettingActivity
 
 class UserFragment : Fragment() {
@@ -57,9 +59,12 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeUserSession()
 
+
     // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     //     super.onViewCreated(view, savedInstanceState)
-    //     setupAction()
+         setupAction()
+
+
 
 //        val analyzeResultAdapter = ResultAdapter { analyzeResult ->
 //            historyViewModel.removeAnalyzeResult(analyzeResult)
@@ -95,6 +100,14 @@ class UserFragment : Fragment() {
         binding.btnGoingToSetting.setOnClickListener {
             val intentMaps = Intent(requireActivity(), SettingActivity::class.java)
             startActivity(intentMaps)
+        }
+        binding.btnRegisterWelcomeUser.setOnClickListener {
+            val intent = Intent(requireActivity(), RegisterActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnLogInWelcomeUser.setOnClickListener {
+            val intent = Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 

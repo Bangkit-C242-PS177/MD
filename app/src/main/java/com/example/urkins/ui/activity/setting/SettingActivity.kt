@@ -1,23 +1,33 @@
 package com.example.urkins.ui.activity.setting
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.urkins.R
+import com.example.urkins.data.pref.UserPreference2
+import com.example.urkins.data.pref.dataStore
+import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.data.worker.NotificationWorker
 import com.example.urkins.databinding.ActivitySettingBinding
+import com.example.urkins.ui.activity.login.LoginViewModel
+import com.example.urkins.ui.activity.login.LoginViewModelFactory
+import com.example.urkins.ui.activity.onboarding.OnBoardingActivity
 import java.util.concurrent.TimeUnit
 
 @Suppress("DEPRECATION")
 class SettingActivity : AppCompatActivity() {
+    private lateinit var settingViewModel: SettingViewModel
     private lateinit var binding: ActivitySettingBinding
     private var isNotificationEnabled: Boolean? = null
     private var isStatusInitialized = false
@@ -47,6 +57,11 @@ class SettingActivity : AppCompatActivity() {
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val userPref = UserPreference2.getInstance(application.dataStore)
+        val userRepo = UserRepository.getInstance(userPref)
+        val factoryResult: SettingViewModelFactory = SettingViewModelFactory.getInstance( userPref, userRepo)
+        settingViewModel = ViewModelProvider(this, factoryResult)[SettingViewModel::class.java]
+
         supportActionBar?.hide()
 
         binding.btnNotificationArrow.setOnClickListener {
@@ -62,7 +77,36 @@ class SettingActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        logoutUser()
+
+//        binding.btnLogout.setOnClickListener {
+//            settingViewModel.logout()
+//        }
+
         updateNotificationStatus()
+    }
+
+    private fun logoutUser() {
+        binding.btnLogout.setOnClickListener {
+            dialogConfirmationLogout()
+        }
+    }
+
+    private fun dialogConfirmationLogout() {
+        AlertDialog.Builder(this).apply {
+            setTitle(getString(R.string.logout_title))
+            setMessage(getString(R.string.logout_confirmation))
+            setPositiveButton(getString(R.string.yes)) { _, _ ->
+                settingViewModel.logout() // Pastikan menggunakan settingViewModel
+                val intent = Intent(this@SettingActivity, OnBoardingActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish() // Menggunakan finish() langsung
+            }
+            setNegativeButton(getString(R.string.no), null)
+            create()
+            show()
+        }
     }
 
     private fun checkAndRequestNotificationPermission() {
