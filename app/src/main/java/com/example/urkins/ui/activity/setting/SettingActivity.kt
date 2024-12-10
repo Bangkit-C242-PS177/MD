@@ -7,17 +7,25 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.urkins.R
+import com.example.urkins.data.pref.UserPreference2
+import com.example.urkins.data.pref.dataStore
+import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.data.worker.NotificationWorker
 import com.example.urkins.databinding.ActivitySettingBinding
+import com.example.urkins.ui.activity.login.LoginViewModel
+import com.example.urkins.ui.activity.login.LoginViewModelFactory
 import java.util.concurrent.TimeUnit
 
 @Suppress("DEPRECATION")
 class SettingActivity : AppCompatActivity() {
+    private lateinit var settingViewModel: SettingViewModel
     private lateinit var binding: ActivitySettingBinding
     private var isNotificationEnabled: Boolean? = null
     private var isStatusInitialized = false
@@ -47,6 +55,11 @@ class SettingActivity : AppCompatActivity() {
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val userPref = UserPreference2.getInstance(application.dataStore)
+        val userRepo = UserRepository.getInstance(userPref)
+        val factoryResult: SettingViewModelFactory = SettingViewModelFactory.getInstance( userPref, userRepo)
+        settingViewModel = ViewModelProvider(this, factoryResult)[SettingViewModel::class.java]
+
         supportActionBar?.hide()
 
         binding.btnNotificationArrow.setOnClickListener {
@@ -60,6 +73,10 @@ class SettingActivity : AppCompatActivity() {
         val btnBack: ImageView = findViewById(R.id.btn_back)
         btnBack.setOnClickListener {
             onBackPressed()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            settingViewModel.logout()
         }
 
         updateNotificationStatus()

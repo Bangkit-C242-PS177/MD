@@ -59,7 +59,7 @@ class UserFragment : Fragment() {
 
     // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     //     super.onViewCreated(view, savedInstanceState)
-    //     setupAction()
+         setupAction()
 
 //        val analyzeResultAdapter = ResultAdapter { analyzeResult ->
 //            historyViewModel.removeAnalyzeResult(analyzeResult)
