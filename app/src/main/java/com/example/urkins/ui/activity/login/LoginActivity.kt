@@ -15,8 +15,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.MainActivity
 import com.example.urkins.R
-import com.example.urkins.data.pref.UserPreference
+import com.example.urkins.data.pref.UserModel
+import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
+import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.databinding.ActivityLoginBinding
 import com.example.urkins.ui.activity.register.RegisterActivity
 
@@ -37,8 +39,10 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        val userPref = UserPreference.getInstance(application.dataStore)
-        val factoryResult: LoginViewModelFactory = LoginViewModelFactory.getInstance(application, userPref)
+        val userPref = UserPreference2.getInstance(application.dataStore)
+//        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        val userRepo = UserRepository.getInstance(userPref)
+        val factoryResult: LoginViewModelFactory = LoginViewModelFactory.getInstance(application, userPref, userRepo)
         loginViewModel = ViewModelProvider(this, factoryResult)[LoginViewModel::class.java]
 
         loginViewModel.showSuccessDialog.observe(this) {
@@ -105,6 +109,7 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
+        loginViewModel.saveSession(UserModel(email, "sample_token"))
         loginViewModel.loginUser(email, password)
     }
 

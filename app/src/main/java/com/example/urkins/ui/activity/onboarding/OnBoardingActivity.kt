@@ -30,7 +30,7 @@ class OnBoardingActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         binding.btnGetStarted.setOnClickListener {
-            intent = Intent(this, LoginActivity::class.java)
+            intent = Intent(this, MainActivity::class.java)
             startActivity(
                 intent
             )

@@ -12,8 +12,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.MainActivity
 import com.example.urkins.R
-import com.example.urkins.data.pref.UserPreference
+//import com.example.urkins.data.pref.UserPreference
+import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
+import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.databinding.ActivitySplashScreenBinding
 import com.example.urkins.ui.activity.onboarding.OnBoardingActivity
 
@@ -26,8 +28,9 @@ class SplashScreenActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash_screen)
 
-        val userPreferences = UserPreference.getInstance(application.dataStore)
-        splashViewModel = ViewModelProvider(this, SplashViewModelFactory(userPreferences))[SplashViewModel::class.java]
+        val userPreferences = UserPreference2.getInstance(application.dataStore)
+        val userRepo = UserRepository.getInstance(userPreferences)
+        splashViewModel = ViewModelProvider(this, SplashViewModelFactory(userPreferences, userRepo))[SplashViewModel::class.java]
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -37,13 +40,13 @@ class SplashScreenActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            splashViewModel.isUserTokenAvailable.observe(this) { userTokenAvailable ->
-                if (userTokenAvailable) {
-                    intent = Intent(this, MainActivity::class.java)
+            splashViewModel.getSession().observe(this) { user ->
+                if (!user.isLogin) {
+                    intent = Intent(this, OnBoardingActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    intent = Intent(this, OnBoardingActivity::class.java)
+                    intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

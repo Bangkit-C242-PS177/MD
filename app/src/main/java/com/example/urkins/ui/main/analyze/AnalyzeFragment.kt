@@ -17,8 +17,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.R
-import com.example.urkins.data.pref.UserPreference
+import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
+import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.databinding.FragmentAnalyzeBinding
 import com.example.urkins.ui.activity.camera.CameraActivity
 import com.example.urkins.ui.activity.login.LoginActivity
@@ -66,7 +67,7 @@ class AnalyzeFragment : Fragment() {
     ): View {
         analyzeViewModel = ViewModelProvider(
             this,
-            AnalyzeViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
+            AnalyzeViewModelFactory(UserPreference2.getInstance(requireContext().dataStore), UserRepository.getInstance(UserPreference2.getInstance(requireContext().dataStore)))
         )[AnalyzeViewModel::class.java]
         _binding = FragmentAnalyzeBinding.inflate(inflater, container, false)
         return binding.root
@@ -74,7 +75,7 @@ class AnalyzeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val userPreferences = UserPreference.getInstance(requireContext().dataStore)
+        val userPreferences = UserPreference2.getInstance(requireContext().dataStore)
 
         observeViewModel()
         setupObserver()
@@ -93,17 +94,17 @@ class AnalyzeFragment : Fragment() {
 
 
     private fun cekToken() {
-        analyzeViewModel.isUserTokenAvailable.observe(viewLifecycleOwner) { userToken ->
-            if (userToken) {
-                val intent = Intent(requireContext(), CameraActivity::class.java)
+        analyzeViewModel.getSession().observe(viewLifecycleOwner) { user ->
+            if (!user.isLogin) {
+                val intent = Intent(requireContext(), LoginActivity::class.java)
                 launchCameraActivity.launch(intent)
             } else {
-                val intent = Intent(requireContext(), LoginActivity::class.java)
+                val intent = Intent(requireContext(), CameraActivity::class.java)
                 startActivity(intent)
             }
 
         }
-        analyzeViewModel.checkUserToken(true)
+//        analyzeViewModel.checkUserToken(true)
     }
 
     private fun observeViewModel() {

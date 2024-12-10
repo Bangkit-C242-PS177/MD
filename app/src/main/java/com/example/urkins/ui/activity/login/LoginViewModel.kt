@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.urkins.R
-import com.example.urkins.data.pref.UserPreference
+//import com.example.urkins.data.pref.UserPreference
 import com.example.urkins.data.repository.LoginRepository
 import com.example.urkins.data.response.LoginResponse
 import com.example.urkins.data.retrofit.ApiService
@@ -15,11 +15,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import android.util.Log
+import com.example.urkins.data.pref.UserModel
+import com.example.urkins.data.pref.UserPreference2
+import com.example.urkins.data.repository.UserRepository
 
 class LoginViewModel (
     application: Application,
     private val loginRepository: LoginRepository,
-    private val userPreference: UserPreference
+    private val userPreference: UserPreference2,
+    private val repository: UserRepository
 ) : AndroidViewModel(application) {
 
     private val _showSuccessDialog = MutableLiveData<String>()
@@ -47,13 +51,13 @@ class LoginViewModel (
                 val username = loginResult?.username
                 _loading.postValue(false)
                 _showSuccessDialog.postValue(getApplication<Application>().getString(R.string.login_succes_dialog))
-                userToken?.let { token ->
-                    userEmail?.let { email ->
-                        username?.let { name ->
-                            saveUserData(name, email, token)
-                        }
-                    }
-                }
+//                userToken?.let { token ->
+//                    userEmail?.let { email ->
+//                        username?.let { name ->
+//                            saveUserData(name, email, token)
+//                        }
+//                    }
+//                }
 //                saveUserData(response)
             } catch (e: HttpException) {
                 _loading.postValue(false)
@@ -80,10 +84,16 @@ class LoginViewModel (
         }
     }
 
-    private fun saveUserData(userEmail: String, username: String, userToken: String) {
+//    private fun saveUserData(userEmail: String, username: String, userToken: String) {
+//        viewModelScope.launch {
+//            userPreference.saveUserData(token = userToken, email = userEmail, name = username)
+//            Log.d("UserPreference", "Token disimpan: $userToken")
+//        }
+//    }
+
+    fun saveSession(user: UserModel) {
         viewModelScope.launch {
-            userPreference.saveUserData(token = userToken, email = userEmail, name = username)
-            Log.d("UserPreference", "Token disimpan: $userToken")
+            repository.saveSession(user)
         }
     }
 

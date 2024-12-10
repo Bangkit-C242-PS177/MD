@@ -4,8 +4,11 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.urkins.data.pref.UserPreference
+import com.example.urkins.data.pref.UserModel
+import com.example.urkins.data.pref.UserPreference2
+import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.data.response.ScanResponse
 import com.example.urkins.data.retrofit.ApiConfig
 import kotlinx.coroutines.launch
@@ -18,7 +21,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-class AnalyzeViewModel (private val userPreference: UserPreference) : ViewModel() {
+class AnalyzeViewModel (private val userPreference: UserPreference2, private val repository: UserRepository) : ViewModel() {
 
     private val _selectUriImage = MutableLiveData<Uri?>()
     val selectUriImage: LiveData<Uri?> = _selectUriImage
@@ -41,6 +44,10 @@ class AnalyzeViewModel (private val userPreference: UserPreference) : ViewModel(
 //    init {
 //        checkUserToken()
 //    }
+
+    fun getSession(): LiveData<UserModel> {
+        return repository.getSession().asLiveData()
+    }
 
     fun uploadImage(uri: Uri, userId: Int) {
         val file = File(uri.path!!)
