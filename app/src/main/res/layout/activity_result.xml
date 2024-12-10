@@ -110,24 +110,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/result_skin_condition_text"
                     tools:ignore="TextSizeCheck,VisualLintLongText" />
 
-                <Button
-                    android:id="@+id/btn_save"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:backgroundTint="@color/white"
-                    android:text="@string/save"
-                    android:textColor="@color/black"
-                    app:icon="@drawable/ic_save"
-                    app:iconTint="@color/black"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_analyze_result_description"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/tv_analyze_result_description"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_analyze_result_description"
-                    tools:ignore="TextContrastCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
