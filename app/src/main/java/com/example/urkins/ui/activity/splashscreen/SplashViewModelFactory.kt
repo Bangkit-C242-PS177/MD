@@ -2,6 +2,7 @@ package com.example.urkins.ui.activity.splashscreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.urkins.data.pref.UserPreference
 
 class SplashViewModelFactory(private val userPreference: UserPreference) :
     ViewModelProvider.NewInstanceFactory() {
