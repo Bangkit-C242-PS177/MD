@@ -107,6 +107,11 @@
     <string name="no_image_selected">no image selected</string>
     <string name="product_category">Category of product</string>
     <string name="title_product_category">Category</string>
+    <string name="iv_skincare_home_guest_img">Home\'s guest image</string>
+    <string name="title_guest_text">Your recent skincare recommendation will appear here. Let\'s analyze your skin first and start your journey to healthier skin</string>
+    <string name="title_welcome_user">UrKins\nPersonalized Skincare\nRekommendation Application</string>
+    <string name="description_welcome_user">UrKins empowers you to care for your skin \nwith AI-powered analysis, personalized \nproduct suggestions, and clear guidance \non skincare ingredients. Unlock the path \nto radiant, healthy skin designed just for you.</string>
+
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
