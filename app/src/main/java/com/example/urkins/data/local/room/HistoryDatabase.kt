@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.urkins.data.local.entity.HistoryEntity
+import com.example.urkins.util.UriConverter
 
 @Database(entities = [HistoryEntity::class], version = 1)
 @TypeConverters(UriConverter::class)

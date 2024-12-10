@@ -1,6 +1,7 @@
 package com.example.urkins.di
 
 import android.content.Context
+import com.example.urkins.data.local.room.HistoryDatabase
 //import com.example.urkins.data.pref.UserPreference
 import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
@@ -25,8 +26,15 @@ object Injection {
         return LoginRepository.getInstance(apiService)
     }
 
-    fun provideRepository(context: Context): UserRepository {
+    fun provideRepository2(context: Context): UserRepository {
         val pref = UserPreference2.getInstance(context.dataStore)
         return UserRepository.getInstance(pref)
+    }
+
+    fun provideRepository(context: Context): HistoryRepository {
+        val database = HistoryDatabase.getInstance(context)
+        val dao = database.historyDao()
+        val appExecutors = AppExecutors()
+        return HistoryRepository.getInstance(dao, appExecutors)
     }
 }
