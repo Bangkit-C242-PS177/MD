@@ -1,13 +1,13 @@
 package com.example.urkins.ui.main.home
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.urkins.R
 import com.example.urkins.data.adapter.ArticlesAdapter
@@ -15,7 +15,12 @@ import com.example.urkins.data.adapter.SkincareRecommendationHomeAdapter
 import com.example.urkins.data.response.ArticlesResponse
 import com.example.urkins.data.response.SkincareRecommendation
 import com.example.urkins.databinding.FragmentHomeBinding
+import com.example.urkins.ui.activity.SkincareDetailActivity
 import com.example.urkins.ui.activity.recommendskincare.SkincareRecommendationActivity
+import com.example.urkins.data.pref.UserPreference2
+import com.example.urkins.data.pref.UserModel
+import com.example.urkins.data.pref.dataStore
+import com.example.urkins.data.repository.UserRepository
 
 class HomeFragment : Fragment() {
 
@@ -25,53 +30,76 @@ class HomeFragment : Fragment() {
     private val skincareList = ArrayList<SkincareRecommendation>()
     private val articlesList = ArrayList<ArticlesResponse>()
 
+    private lateinit var userPreference: UserPreference2
+
+    private lateinit var homeViewModel: HomeViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        userPreference = UserPreference2.getInstance(requireContext().dataStore)
+        val userRepository = UserRepository.getInstance(userPreference)
+        val factory = HomeViewModelFactory(userRepository)
+        homeViewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
         setupRecyclerView()
         skincareList.addAll(getListSkincare())
-        showSkincareRecyclerList()
-        return root
+        observeUserSession()
+
+        return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val tvBannerHomeText = view.findViewById<TextView>(R.id.tv_banner_home_text)
-        tvBannerHomeText.setOnClickListener {
-            val intent = Intent(context, SkincareRecommendationActivity::class.java)
-            startActivity(intent)
+    private fun observeUserSession() {
+        homeViewModel.getSession().observe(viewLifecycleOwner) { user ->
+            if (!user.isLogin) {
+                binding.clSkincareRecommendHome.visibility = View.GONE
+                binding.clSkincareRecommendHomeGuest.visibility = View.VISIBLE
+            } else {
+                binding.clSkincareRecommendHome.visibility = View.VISIBLE
+                binding.clSkincareRecommendHomeGuest.visibility = View.GONE
+                showSkincareRecyclerList()
+            }
+        }
+    }
+
+    private fun showSkincareRecyclerList() {
+        binding.rvSkincare.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvSkincare.adapter = SkincareRecommendationHomeAdapter(skincareList) { skincareRecommendation ->
+            startActivity(Intent(requireContext(), SkincareDetailActivity::class.java).apply {
+                putExtra("SKINCARE_NAME", skincareRecommendation.skincareName)
+                putExtra("SKINCARE_CATEGORY", skincareRecommendation.skincareCategory)
+                putExtra("SKINCARE_DESCRIPTION", skincareRecommendation.skincareDescription)
+                putExtra("SKINCARE_HOW_TO_USE", skincareRecommendation.skincareHowToUse)
+                putExtra("SKINCARE_INGREDIENTS", skincareRecommendation.skincareIngredients)
+                putExtra("SKINCARE_PHOTO", skincareRecommendation.skincarePhoto)
+            })
         }
     }
 
     private fun setupRecyclerView() {
-        binding.rvArticle.setHasFixedSize(true)
-        articlesList.addAll(getListArticles())
-        binding.rvArticle.layoutManager = LinearLayoutManager(requireContext())
-        val articlesAdapter = ArticlesAdapter(articlesList)
-        binding.rvArticle.adapter = articlesAdapter
+        binding.rvArticle.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = ArticlesAdapter(getListArticles())
+        }
         binding.progressBar.visibility = View.GONE
     }
 
-    @SuppressLint("Recycle")
     private fun getListArticles(): ArrayList<ArticlesResponse> {
         val dataTitle = resources.getStringArray(R.array.data_article_title)
         val dataDate = resources.getStringArray(R.array.data_article_date)
         val dataAuthor = resources.getStringArray(R.array.data_article_author)
         val dataPhoto = resources.obtainTypedArray(R.array.data_article_photo)
-        val listArticles = ArrayList<ArticlesResponse>()
-        for (i in dataTitle.indices) {
-            val article = ArticlesResponse(dataTitle[i], dataDate[i], dataAuthor[i], dataPhoto.getString(i))
-            listArticles.add(article)
+        return ArrayList<ArticlesResponse>().apply {
+            for (i in dataTitle.indices) {
+                add(ArticlesResponse(dataTitle[i], dataDate[i], dataAuthor[i], dataPhoto.getString(i)))
+            }
+            dataPhoto.recycle()
         }
-        return listArticles
     }
 
-    @SuppressLint("Recycle")
     private fun getListSkincare(): Collection<SkincareRecommendation> {
         val dataSkincareName = resources.getStringArray(R.array.data_skincare_name)
         val dataSkincareCategory = resources.getStringArray(R.array.data_skincare_category)
@@ -79,20 +107,23 @@ class HomeFragment : Fragment() {
         val dataSkincareDescription = resources.getStringArray(R.array.data_skincare_description)
         val dataSkincareHowToUse = resources.getStringArray(R.array.data_skincare_how_to_use)
         val dataSkincareIngredients = resources.getStringArray(R.array.data_skincare_ingredients)
-        val listRecommendation = ArrayList<SkincareRecommendation>()
 
-        for (i in 0 until minOf(4, dataSkincareName.size)) {
-            val skincareRecommendation = SkincareRecommendation(
-                dataSkincareName[i], dataSkincareCategory[i], dataSkincareDescription[i], dataSkincareHowToUse[i], dataSkincareIngredients[i], dataSkincarePhoto.getString(i))
-            listRecommendation.add(skincareRecommendation)
+        return ArrayList<SkincareRecommendation>().apply {
+            for (i in 0 until minOf(4, dataSkincareName.size)) {
+                add(SkincareRecommendation(
+                    dataSkincareName[i], dataSkincareCategory[i], dataSkincareDescription[i],
+                    dataSkincareHowToUse[i], dataSkincareIngredients[i], dataSkincarePhoto.getString(i)
+                ))
+            }
+            dataSkincarePhoto.recycle()
         }
-        return listRecommendation
     }
 
-    private fun showSkincareRecyclerList() {
-        binding.rvSkincare.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        val skincareRecommendationAdapter = SkincareRecommendationHomeAdapter(skincareList)
-        binding.rvSkincare.adapter = skincareRecommendationAdapter
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.tvBannerHomeText.setOnClickListener {
+            startActivity(Intent(context, SkincareRecommendationActivity::class.java))
+        }
     }
 
     override fun onDestroyView() {

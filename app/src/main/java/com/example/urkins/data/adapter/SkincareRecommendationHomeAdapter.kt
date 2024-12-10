@@ -8,14 +8,19 @@ import com.example.urkins.data.response.SkincareRecommendation
 import com.example.urkins.databinding.ItemSkincareHomeBinding
 
 class SkincareRecommendationHomeAdapter(
-    private val recommendations: List<SkincareRecommendation>
+    private val recommendations: List<SkincareRecommendation>,
+    private val onItemClick: (SkincareRecommendation) -> Unit
 ) : RecyclerView.Adapter<SkincareRecommendationHomeAdapter.SkincareRecommendationViewHolder>() {
 
     class SkincareRecommendationViewHolder(private val binding: ItemSkincareHomeBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: SkincareRecommendation) {
+        fun bind(item: SkincareRecommendation, onItemClick: (SkincareRecommendation) -> Unit) {
             Glide.with(binding.root.context)
                 .load(item.skincarePhoto)
                 .into(binding.ivSkincareImg)
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
         }
     }
 
@@ -25,7 +30,7 @@ class SkincareRecommendationHomeAdapter(
     }
 
     override fun onBindViewHolder(holder: SkincareRecommendationViewHolder, position: Int) {
-        holder.bind(recommendations[position])
+        holder.bind(recommendations[position], onItemClick)
     }
 
     override fun getItemCount(): Int = recommendations.size
