@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_skincare_detail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <ImageView
             android:id="@+id/iv_app_logo_dua"
             android:layout_width="66dp"
@@ -42,30 +42,51 @@
             android:id="@+id/iv_skincare_product_img"
             android:layout_width="220dp"
             android:layout_height="220dp"
-            android:layout_marginTop="105dp"
-            android:scaleType="centerCrop"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="105dp"
             android:layout_marginEnd="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/tv_title_product_description"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="ImageContrastCheck"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_title_product_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/afacad"
+            android:text="@string/title_product_category"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_skincare_product_img" />
 
         <TextView
             android:id="@+id/tv_title_product_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/aclonica"
             android:text="@string/title_product_description"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_product_description"
-            app:layout_constraintEnd_toEndOf="@+id/iv_skincare_product_img"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_product_category"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="@+id/iv_skincare_product_img" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tv_product_description"
@@ -79,8 +100,9 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/tv_title_product_description"
-            app:layout_constraintStart_toStartOf="@+id/tv_title_product_description"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_product_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="388dp"
             tools:ignore="MissingConstraints" />
 
@@ -88,15 +110,17 @@
             android:id="@+id/tv_title_how_to_use"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/aclonica"
             android:text="@string/title_how_to_use"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_how_to_use_text"
-            app:layout_constraintEnd_toEndOf="@+id/tv_product_description"
-            app:layout_constraintStart_toStartOf="@+id/tv_product_description" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_description"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/tv_how_to_use_text"
@@ -110,8 +134,9 @@
             android:background="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/tv_title_how_to_use"
-            app:layout_constraintStart_toStartOf="@+id/tv_title_how_to_use"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_how_to_use"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="454dp"
             tools:ignore="MissingConstraints" />
 
@@ -119,15 +144,17 @@
             android:id="@+id/tv_title_product_ingredient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/aclonica"
             android:text="@string/title_product_ingredient"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_product_ingredient_text"
-            app:layout_constraintEnd_toEndOf="@+id/tv_title_how_to_use"
-            app:layout_constraintStart_toStartOf="@+id/tv_title_how_to_use" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_how_to_use_text"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/tv_product_ingredient_text"
@@ -140,8 +167,9 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/tv_title_product_ingredient"
-            app:layout_constraintStart_toStartOf="@+id/tv_title_product_ingredient"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_product_ingredient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="521dp"
             tools:ignore="MissingConstraints" />
 

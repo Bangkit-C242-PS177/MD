@@ -106,6 +106,7 @@
     <string name="register_failed_dialog">Register failed</string>
     <string name="no_image_selected">no image selected</string>
     <string name="product_category">Category of product</string>
+    <string name="title_product_category">Category</string>
 
     <string-array name="data_article_title">
         <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>

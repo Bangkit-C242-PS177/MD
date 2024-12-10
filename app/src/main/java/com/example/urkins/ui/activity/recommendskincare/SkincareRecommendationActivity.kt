@@ -10,6 +10,7 @@ import com.example.urkins.R
 import com.example.urkins.data.adapter.SkincareRecommendationAdapter
 import com.example.urkins.data.response.SkincareRecommendation
 import com.example.urkins.databinding.ActivitySkincareRecommendationBinding
+import com.example.urkins.ui.activity.SkincareDetailActivity
 
 class SkincareRecommendationActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySkincareRecommendationBinding
@@ -54,7 +55,17 @@ class SkincareRecommendationActivity : AppCompatActivity() {
     private fun showSkincareRecyclerList() {
         binding.progressBar.visibility = View.GONE
         binding.rvSkincare.layoutManager = GridLayoutManager(this, 2)
-        val listRecommendationAdapter = SkincareRecommendationAdapter(list)
+        val listRecommendationAdapter = SkincareRecommendationAdapter(list) { skincareRecommendation ->
+            val intent = Intent(this, SkincareDetailActivity::class.java).apply {
+                putExtra("SKINCARE_NAME", skincareRecommendation.skincareName)
+                putExtra("SKINCARE_CATEGORY", skincareRecommendation.skincareCategory)
+                putExtra("SKINCARE_DESCRIPTION", skincareRecommendation.skincareDescription)
+                putExtra("SKINCARE_HOW_TO_USE", skincareRecommendation.skincareHowToUse)
+                putExtra("SKINCARE_INGREDIENTS", skincareRecommendation.skincareIngredients)
+                putExtra("SKINCARE_PHOTO", skincareRecommendation.skincarePhoto)
+            }
+            startActivity(intent)
+        }
         binding.rvSkincare.adapter = listRecommendationAdapter
     }
 }
