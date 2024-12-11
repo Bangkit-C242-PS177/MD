@@ -18,9 +18,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.urkins.data.adapter.HistoryAdapter
+import com.example.urkins.data.local.entity.HistoryEntity
 import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
 import com.example.urkins.data.repository.UserRepository
@@ -32,11 +35,7 @@ import com.example.urkins.ui.activity.setting.SettingActivity
 class UserFragment : Fragment() {
 
     private var _binding: FragmentUserBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
-
     private lateinit var userViewModel: UserViewModel
     private lateinit var userPreference: UserPreference2
 
@@ -48,21 +47,10 @@ class UserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // val userViewModel =
-        //     ViewModelProvider(this).get(UserViewModel::class.java)
-
-        // _binding = FragmentUserBinding.inflate(inflater, container, false)
-        // val root: View = binding.root
-
         userPreference = UserPreference2.getInstance(requireContext().dataStore)
         val userRepository = UserRepository.getInstance(userPreference)
         val factory = UserViewModelFactory(userRepository)
         userViewModel = ViewModelProvider(this, factory).get(UserViewModel::class.java)
-
-//        val textView: TextView = binding.textNotifications
-//        userViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         _binding = FragmentUserBinding.inflate(inflater, container, false)
         return binding.root
         // return root
@@ -91,7 +79,53 @@ class UserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkPermissions()
+
+        val factory: UserViewModelFactory2 =
+            UserViewModelFactory2.getInstance(requireActivity())
+        val historyViewModel: UserViewModel2 by viewModels {
+            factory
+        }
+
+        val adapterHistory = HistoryAdapter{ analizeResult ->
+            historyViewModel.deleteHistory(analizeResult)
+        }
+
+        historyViewModel.getHistory().observe(viewLifecycleOwner) { history ->
+            binding.progressBar.visibility = View.GONE
+            val detail = arrayListOf<HistoryEntity>()
+            history.map {
+                val detailItem = HistoryEntity(
+                    id = it.id,
+                    imageUri = it.imageUri,
+                    prediction = it.prediction,
+                    prediction2 = it.prediction2
+                )
+                detail.add(detailItem)
+            }
+            adapterHistory.submitList(detail)
+        }
+
+        binding.rvHistory.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            adapter = adapterHistory
+        }
+
+//        val analyzeResultAdapter = ResultAdapter { analyzeResult ->
+//            historyViewModel.removeAnalyzeResult(analyzeResult)
+//        }
+//
+//        binding.rvHistory.apply {
+//            layoutManager = GridLayoutManager(requireActivity(), 2)
+//            adapter = analyzeResultAdapter
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    requireActivity(),
+//                    GridLayoutManager(requireActivity(), 2).orientation
+//                )
+//            )
+//            setPadding(0, 0, 0, 200)
+//            clipToPadding = false
+//        }
         observeUserSession()
         setupAction()
         loadImageFromPreferences()
@@ -131,7 +165,7 @@ class UserFragment : Fragment() {
     private fun setupAction() {
         binding.btnGoingToSetting.setOnClickListener {
             val intentMaps = Intent(requireActivity(), SettingActivity::class.java)
-            startActivityForResult(intentMaps, REQUEST_CODE_PICK_IMAGE)
+            startActivity(intentMaps)
         }
         binding.btnRegisterWelcomeUser.setOnClickListener {
             val intent = Intent(requireActivity(), RegisterActivity::class.java)

@@ -39,4 +39,13 @@ object Injection {
         val appExecutors = AppExecutors()
         return HistoryRepository.getInstance(dao, appExecutors)
     }
+
+    fun provideHistoryRepository(context: Context): HistoryRepository {
+        val database = HistoryDatabase.getInstance(context)
+        val dao = database.historyDao()
+        val appExecutors = AppExecutors()
+        return HistoryRepository.getInstance(dao, appExecutors)
+    }
+
+
 }

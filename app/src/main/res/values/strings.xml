@@ -114,6 +114,7 @@
     <string name="register_info">By registering, you are  agreeing to our \nTerm of use and Privacy policy</string>
     <string name="logout_title">Logout</string>
     <string name="logout_confirmation">Yakin Ingin Logout?</string>
+    <string name="empty_image">There Is No Image</string>
 
 
     <string-array name="data_article_title">
