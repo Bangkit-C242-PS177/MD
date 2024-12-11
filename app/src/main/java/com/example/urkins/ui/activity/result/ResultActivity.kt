@@ -10,12 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.R
 import com.example.urkins.databinding.ActivityResultBinding
+import com.google.android.material.snackbar.Snackbar
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
-    private val resultViewModel: ResultViewModel by viewModels()
+    private  lateinit var resultViewModel: ResultViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +27,13 @@ class ResultActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val result : ResultViewModelFactory = ResultViewModelFactory.getInstance(application)
+        resultViewModel = ViewModelProvider(this, result)[ResultViewModel::class.java]
+
+        resultViewModel.snackBar.observe(this) {
+            Snackbar.make(window.decorView.rootView, it, Snackbar.LENGTH_SHORT).show()
         }
 
         // Ambil data dari Intent
