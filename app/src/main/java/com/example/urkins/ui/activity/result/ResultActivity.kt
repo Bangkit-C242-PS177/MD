@@ -29,15 +29,21 @@ class ResultActivity : AppCompatActivity() {
 
         // Ambil data dari Intent
         val imageUri: Uri? = intent.getParcelableExtra(EXTRA_IMAGE)
-        val skinConditions = intent.getSerializableExtra("skin_conditions") as ArrayList<List<String>>
-        val skinType = intent.getSerializableExtra("skin_type") as ArrayList<List<String>>
+        val prediction = intent.getStringExtra(EXTRA_RESULT) ?: "Eye Bag"
+        val prediction2 = intent.getStringExtra(EXTRA_RESULT2) ?: "Normal"
 
+        // Tampilkan data di UI
         binding.ivResultImage.setImageURI(imageUri)
-        // Masukkan data ke ViewModel
-        resultViewModel.setData(skinConditions, skinType)
+        binding.resultSkinConditionText.text = prediction
+        binding.resultSkinTypeText.text = prediction2
 
-        // Observasi data untuk menampilkan hasil
-        observeViewModel()
+//        val skinConditions = intent.getSerializableExtra("skin_conditions") as ArrayList<List<String>>
+//        val skinType = intent.getSerializableExtra("skin_type") as ArrayList<List<String>>
+
+//        binding.ivResultImage.setImageURI(imageUri)
+//        resultViewModel.setData(skinConditions, skinType)
+
+
     }
 
     private fun observeViewModel() {
@@ -56,6 +62,8 @@ class ResultActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_IMAGE = "extra_image"
+        const val EXTRA_RESULT = "extra_result"
+        const val EXTRA_RESULT2 = "extra_result2"
 
     }
 }

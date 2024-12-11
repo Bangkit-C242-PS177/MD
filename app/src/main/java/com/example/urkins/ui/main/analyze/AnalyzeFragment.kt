@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -32,6 +33,9 @@ class AnalyzeFragment : Fragment() {
     private var _binding: FragmentAnalyzeBinding? = null
     private val binding get() = _binding!!
     private lateinit var analyzeViewModel: AnalyzeViewModel
+
+    var resultAnalyzer: String? = null
+    var resultAnalyzer2: String? = null
 
     private val launchCameraActivity = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -77,19 +81,20 @@ class AnalyzeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val userPreferences = UserPreference2.getInstance(requireContext().dataStore)
 
-        observeViewModel()
+//        observeViewModel()
         setupObserver()
+        binding.btnAnalyze.setOnClickListener { analyzeImage() }
 
         binding.btnTakePicture.setOnClickListener { cekToken() }
         if (!allPermissionGranted()) {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
-        binding.btnAnalyze.setOnClickListener {
-            analyzeViewModel.selectUriImage.value?.let { uri ->
-                analyzeViewModel.uploadImage(uri, 35)
-            } ?: showSnackBar(getString(R.string.no_image_selected))
-        }
+//        binding.btnAnalyze.setOnClickListener {
+//            analyzeViewModel.selectUriImage.value?.let { uri ->
+//                analyzeViewModel.uploadImage(uri, 35)
+//            } ?: showSnackBar(getString(R.string.no_image_selected))
+//        }
     }
 
 
@@ -127,6 +132,30 @@ class AnalyzeFragment : Fragment() {
         }
     }
 
+    private fun analyzeImage() {
+        if (analyzeViewModel.selectUriImage.value != null) {
+            val resultKondisi= listOf("Acne", "Eye Bag", "Acne + Eye Bag")
+            val resultTipe=listOf("Oily", "Dry", "Normal")
+            val kondisiKulit  = resultKondisi.random()
+            val tipeKulit = resultTipe.random()
+            resultAnalyzer = kondisiKulit
+            resultAnalyzer2 = tipeKulit
+            binding.progressBar.visibility = View.GONE
+            moveToResult()
+        } else {
+            showToast(getString(R.string.empty_image))
+        }
+    }
+
+    private fun moveToResult() {
+        binding.progressBar.visibility = View.VISIBLE
+        val intent = Intent(requireContext(), ResultActivity::class.java)
+        intent.putExtra(EXTRA_RESULT, resultAnalyzer )
+        intent.putExtra(EXTRA_RESULT2, resultAnalyzer2)
+        intent.putExtra(EXTRA_IMAGE, analyzeViewModel.selectUriImage.value)
+        startActivity(intent)
+    }
+
     private fun setupObserver() {
         analyzeViewModel.selectUriImage.observe(viewLifecycleOwner) {
             showImagePreview()
@@ -154,6 +183,10 @@ class AnalyzeFragment : Fragment() {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
     private fun allPermissionGranted() = REQUIRED_PERMISSION.all {
         ContextCompat.checkSelfPermission(
             requireContext(),
@@ -167,7 +200,9 @@ class AnalyzeFragment : Fragment() {
     }
 
     companion object {
-        const val EXTRA_IMAGE = "extra_image"
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
+        const val EXTRA_IMAGE = "extra_image"
+        const val EXTRA_RESULT = "extra_result"
+        const val EXTRA_RESULT2 = "extra_result2"
     }
 }
