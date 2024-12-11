@@ -1,8 +1,11 @@
 package com.example.urkins.ui.activity.setting
 
 import android.Manifest
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
@@ -31,6 +34,7 @@ class SettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingBinding
     private var isNotificationEnabled: Boolean? = null
     private var isStatusInitialized = false
+    private val REQUEST_CODE_PICK_IMAGE = 100
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -70,6 +74,10 @@ class SettingActivity : AppCompatActivity() {
             } else {
                 checkAndRequestNotificationPermission()
             }
+        }
+
+        binding.btnProfileEditArrow.setOnClickListener {
+            openGallery()
         }
 
         val btnBack: ImageView = findViewById(R.id.btn_back)
@@ -155,5 +163,36 @@ class SettingActivity : AppCompatActivity() {
             dialog.dismiss()
         }
         builder.show()
+    }
+
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+            type = "image/*"
+        }
+        startActivityForResult(intent, REQUEST_CODE_PICK_IMAGE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
+            val uri: Uri? = data?.data
+            uri?.let {
+                // Simpan URI ke SharedPreferences
+                saveImageUriToPreferences(it)
+                val resultIntent = Intent().apply {
+                    putExtra("image_uri", it.toString())
+                }
+                setResult(Activity.RESULT_OK, resultIntent)
+                finish()
+            }
+        }
+    }
+
+    private fun saveImageUriToPreferences(uri: Uri) {
+        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putString("image_uri", uri.toString())
+            apply()
+        }
     }
 }
