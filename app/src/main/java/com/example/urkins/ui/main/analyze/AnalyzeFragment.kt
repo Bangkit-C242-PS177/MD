@@ -10,12 +10,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.R
 import com.example.urkins.data.pref.UserPreference2
@@ -25,7 +23,6 @@ import com.example.urkins.databinding.FragmentAnalyzeBinding
 import com.example.urkins.ui.activity.camera.CameraActivity
 import com.example.urkins.ui.activity.login.LoginActivity
 import com.example.urkins.ui.activity.result.ResultActivity
-import com.example.urkins.ui.activity.result.ResultActivity.Companion.EXTRA_IMAGE
 import com.google.android.material.snackbar.Snackbar
 
 class AnalyzeFragment : Fragment() {
@@ -44,7 +41,6 @@ class AnalyzeFragment : Fragment() {
             val uri = result.data?.getStringExtra("image_uri")?.let { Uri.parse(it) }
             uri?.let {
                 analyzeViewModel.setSelectImageUri(it)
-//                showImage()
                 showImagePreview()
             }
         } else {
@@ -102,20 +98,17 @@ class AnalyzeFragment : Fragment() {
         analyzeViewModel.getSession().observe(viewLifecycleOwner) { user ->
             if (!user.isLogin) {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
-//                launchCameraActivity.launch(intent)
                 startActivity(intent)
             } else {
                 val intent = Intent(requireContext(), CameraActivity::class.java)
-//                startActivity(intent)
                 launchCameraActivity.launch(intent)
             }
 
         }
-//        analyzeViewModel.checkUserToken(true)
     }
 
     private fun observeViewModel() {
-//        binding.progressBar.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
         analyzeViewModel.skinResponse.observe(viewLifecycleOwner) { response ->
             val skinConditions = response.skinConditions.flatten() as ArrayList<String>
             val skinType = response.skinType.flatten() as ArrayList<String>
@@ -162,12 +155,6 @@ class AnalyzeFragment : Fragment() {
             if (it != null) {
                 binding.btnAnalyze.isEnabled = true
             }
-        }
-    }
-
-    private fun showImage() {
-        analyzeViewModel.selectUriImage.value?.let {
-            binding.previewImage.setImageURI(it)
         }
     }
 

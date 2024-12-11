@@ -88,11 +88,6 @@ class SettingActivity : AppCompatActivity() {
         }
 
         logoutUser()
-
-//        binding.btnLogout.setOnClickListener {
-//            settingViewModel.logout()
-//        }
-
         updateNotificationStatus()
     }
 
@@ -107,11 +102,11 @@ class SettingActivity : AppCompatActivity() {
             setTitle(getString(R.string.logout_title))
             setMessage(getString(R.string.logout_confirmation))
             setPositiveButton(getString(R.string.yes)) { _, _ ->
-                settingViewModel.logout() // Pastikan menggunakan settingViewModel
+                settingViewModel.logout()
                 val intent = Intent(this@SettingActivity, OnBoardingActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
-                finish() // Menggunakan finish() langsung
+                finish()
             }
             setNegativeButton(getString(R.string.no), null)
             create()

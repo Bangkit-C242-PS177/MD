@@ -40,12 +40,10 @@ class ResultActivity : AppCompatActivity() {
             Snackbar.make(window.decorView.rootView, it, Snackbar.LENGTH_SHORT).show()
         }
 
-        // Ambil data dari Intent
         val imageUri: Uri? = intent.getParcelableExtra(EXTRA_IMAGE)
         val prediction = intent.getStringExtra(EXTRA_RESULT) ?: "Eye Bag"
         val prediction2 = intent.getStringExtra(EXTRA_RESULT2) ?: "Normal"
 
-        // Tampilkan data di UI
         binding.ivResultImage.setImageURI(imageUri)
         binding.resultSkinConditionText.text = prediction
         binding.resultSkinTypeText.text = prediction2
@@ -70,7 +68,6 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-//        val ivResultImage = findViewById<ImageView>(R.id.iv_result_image)
         val tvSkinConditions = findViewById<TextView>(R.id.result_skin_condition_text)
         val tvSkinType = findViewById<TextView>(R.id.result_skin_type_text)
 

@@ -58,7 +58,6 @@ class UserFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Memeriksa apakah ada data yang disimpan sebelumnya
         savedInstanceState?.let {
             val imageUriString = it.getString("image_uri")
             imageUriString?.let { uriString ->
@@ -70,7 +69,6 @@ class UserFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        // Menyimpan URI gambar ke dalam Bundle
         val imageUri = binding.civProfileImage.tag as? Uri
         imageUri?.let {
             outState.putString("image_uri", it.toString())
@@ -111,45 +109,9 @@ class UserFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = adapterHistory
         }
-
-//        val analyzeResultAdapter = ResultAdapter { analyzeResult ->
-//            historyViewModel.removeAnalyzeResult(analyzeResult)
-//        }
-//
-//        binding.rvHistory.apply {
-//            layoutManager = GridLayoutManager(requireActivity(), 2)
-//            adapter = analyzeResultAdapter
-//            addItemDecoration(
-//                DividerItemDecoration(
-//                    requireActivity(),
-//                    GridLayoutManager(requireActivity(), 2).orientation
-//                )
-//            )
-//            setPadding(0, 0, 0, 200)
-//            clipToPadding = false
-//        }
         observeUserSession()
         setupAction()
         loadImageFromPreferences()
-
-
-
-//        val analyzeResultAdapter = ResultAdapter { analyzeResult ->
-//            historyViewModel.removeAnalyzeResult(analyzeResult)
-//        }
-//
-//        binding.rvHistory.apply {
-//            layoutManager = GridLayoutManager(requireActivity(), 2)
-//            adapter = analyzeResultAdapter
-//            addItemDecoration(
-//                DividerItemDecoration(
-//                    requireActivity(),
-//                    GridLayoutManager(requireActivity(), 2).orientation
-//                )
-//            )
-//            setPadding(0, 0, 0, 200)
-//            clipToPadding = false
-//        }
     }
 
     private fun observeUserSession() {
@@ -221,20 +183,12 @@ class UserFragment : Fragment() {
         }
     }
 
-    private fun checkPermissions() {
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE_PERMISSIONS)
-        }
-    }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Izin diberikan, lanjutkan untuk mengakses gambar
-            } else {
-                // Izin ditolak, tampilkan pesan kepada pengguna
-            }
+            } else { }
         }
     }
 }

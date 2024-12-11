@@ -7,21 +7,14 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 
 interface ApiService {
-//    @FormUrlEncoded
     @POST("auth/register")
     suspend fun registerUser(
         @Body registerRequest: RegisterRequest
-//        @Field("username") username: String,
-//        @Field("email") email: String,
-//        @Field("password") password: String,
-//        @Field("confirm_password") confirm_password: String
     ): RegisterResponse
 
     @POST("auth/login")
@@ -41,7 +34,7 @@ interface ApiService {
 
 
     @Multipart
-    @POST("scan") // Ganti dengan endpoint sesuai API Anda
+    @POST("scan")
     fun analyzeSkin(
         @Part file: MultipartBody.Part,
         @Part("user_id") userId: RequestBody

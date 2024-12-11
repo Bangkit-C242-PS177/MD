@@ -12,11 +12,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.MainActivity
 import com.example.urkins.R
-//import com.example.urkins.data.pref.UserPreference
 import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.pref.dataStore
 import com.example.urkins.data.repository.UserRepository
-import com.example.urkins.databinding.ActivitySplashScreenBinding
 import com.example.urkins.ui.activity.onboarding.OnBoardingActivity
 
 @SuppressLint("CustomSplashScreen")
@@ -51,6 +49,6 @@ class SplashScreenActivity : AppCompatActivity() {
                     finish()
                 }
             }
-        }, 3000)
+        }, 2000)
     }
 }

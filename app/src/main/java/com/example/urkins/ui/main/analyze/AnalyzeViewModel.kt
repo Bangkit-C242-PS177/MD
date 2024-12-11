@@ -5,14 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
 import com.example.urkins.data.pref.UserModel
 import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.repository.UserRepository
 import com.example.urkins.data.response.ScanResponse
 import com.example.urkins.data.retrofit.ApiConfig
-import kotlinx.coroutines.launch
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -21,7 +18,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-class AnalyzeViewModel (private val userPreference: UserPreference2, private val repository: UserRepository) : ViewModel() {
+class AnalyzeViewModel(
+    private val userPreference: UserPreference2,
+    private val repository: UserRepository
+) : ViewModel() {
 
     private val _selectUriImage = MutableLiveData<Uri?>()
     val selectUriImage: LiveData<Uri?> = _selectUriImage
@@ -31,8 +31,6 @@ class AnalyzeViewModel (private val userPreference: UserPreference2, private val
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
-
-//    private val apiService by lazy { ApiConfig.getApiService(userToken) }
 
     fun setSelectImageUri(uri: Uri?) {
         _selectUriImage.value = uri
@@ -70,13 +68,13 @@ class AnalyzeViewModel (private val userPreference: UserPreference2, private val
         })
     }
 
-//    private fun checkUserToken() {
+    //    private fun checkUserToken() {
 //        viewModelScope.launch {
 //            val token = userPreference.getUserToken()
 //            _isUserTokenAvailable.value = token.isNotEmpty()
 //        }
 //    }
-fun checkUserToken(tokenAvailable: Boolean) {
-    _isUserTokenAvailable.postValue(tokenAvailable)
-}
+    fun checkUserToken(tokenAvailable: Boolean) {
+        _isUserTokenAvailable.postValue(tokenAvailable)
+    }
 }

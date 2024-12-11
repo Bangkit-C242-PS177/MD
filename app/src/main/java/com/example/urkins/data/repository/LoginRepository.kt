@@ -9,9 +9,6 @@ class LoginRepository (
     suspend fun login(loginRequest: ApiService.LoginRequest): LoginResponse {
         return apiService.loginUser(loginRequest)
     }
-//    suspend fun login(email: String, password: String): LoginResponse {
-//        return apiService.loginUser(email, password)
-//    }
 
     companion object {
         @Volatile

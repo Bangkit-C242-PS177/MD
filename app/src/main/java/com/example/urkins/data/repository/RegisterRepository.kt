@@ -9,11 +9,6 @@ class RegisterRepository (
     suspend fun registerUser(registerRequest: ApiService.RegisterRequest): RegisterResponse {
         return apiService.registerUser(registerRequest)
     }
-//
-//    suspend fun registerUser(username: String, email: String, password: String, confirm_password: String): String {
-//        val response = apiService.registerUser(username, email, password, confirm_password)
-//        return response.string() // Baca respons langsung sebagai string
-//    }
 
     companion object {
 

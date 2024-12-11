@@ -40,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         val userPref = UserPreference2.getInstance(application.dataStore)
-//        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         val userRepo = UserRepository.getInstance(userPref)
         val factoryResult: LoginViewModelFactory = LoginViewModelFactory.getInstance(application, userPref, userRepo)
         loginViewModel = ViewModelProvider(this, factoryResult)[LoginViewModel::class.java]

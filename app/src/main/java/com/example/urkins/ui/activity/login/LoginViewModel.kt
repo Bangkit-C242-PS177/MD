@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.urkins.R
-//import com.example.urkins.data.pref.UserPreference
 import com.example.urkins.data.repository.LoginRepository
 import com.example.urkins.data.response.LoginResponse
 import com.example.urkins.data.retrofit.ApiService
@@ -14,7 +13,6 @@ import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
-import android.util.Log
 import com.example.urkins.data.pref.UserModel
 import com.example.urkins.data.pref.UserPreference2
 import com.example.urkins.data.repository.UserRepository

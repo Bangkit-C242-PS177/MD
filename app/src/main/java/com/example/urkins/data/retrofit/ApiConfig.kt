@@ -1,7 +1,6 @@
 package com.example.urkins.data.retrofit
 
 import com.example.urkins.BuildConfig
-import com.example.urkins.BuildConfig.BASE_URL
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
