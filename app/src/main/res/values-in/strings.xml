@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UrKins</string>
     <string name="app_logo">App Logo</string>
@@ -5,131 +6,131 @@
     <string name="title_home">Home</string>
     <string name="title_analyze">Analyze</string>
     <string name="title_user">User</string>
-    <string name="bd_satu_title">Find the Right Skincare Product</string>
-    <string name="bd_satu_text">Welcome to UrKins! We are here to help you find the right skincare products for your skin. Get personalized recommendations for healthy and glowing skin.</string>
-    <string name="bd_dua_title">Match Skincare to Your Skin Needs</string>
-    <string name="bd_dua_text">We analyze your skins needs to recommend the most suitable products. From cleansers to moisturizers, we are here to make sure your skin gets the best care.</string>
-    <string name="bd_tiga_title">Start Your Face Analysis</string>
-    <string name="bd_tiga_text">Take a photo of your face and let us do an in-depth analysis. Find products designed specifically for your skin and start your journey to healthier skin. Click Get Started to continue.</string>
-    <string name="get_started">Get Started</string>
+    <string name="bd_satu_title">Temukan Produk Perawatan Kulit yang Tepat</string>
+    <string name="bd_satu_text">Selamat datang di UrKins! Kami hadir untuk membantu Anda menemukan produk perawatan kulit yang tepat untuk kulit Anda. Dapatkan rekomendasi yang dipersonalisasi untuk kulit yang sehat dan berseri.</string>
+    <string name="bd_dua_title">Sesuaikan Perawatan Kulit dengan Kebutuhan Kulit Anda</string>
+    <string name="bd_dua_text">Kami menganalisis kebutuhan kulit Anda untuk merekomendasikan produk yang paling sesuai. Dari pembersih hingga pelembap, kami siap memastikan kulit Anda mendapatkan perawatan terbaik.</string>
+    <string name="bd_tiga_title">Mulai Analisis Wajah Anda</string>
+    <string name="bd_tiga_text">Ambil foto wajah Anda dan biarkan kami melakukan analisis mendalam. Temukan produk yang dirancang khusus untuk kulit Anda dan mulailah perjalanan Anda menuju kulit yang lebih sehat. Klik Mulai untuk melanjutkan.</string>
+    <string name="get_started">Memulai</string>
     <string name="onboarding_image">onboarding image</string>
     <string name="article_title">Article title\n</string>
     <string name="published_date">Published date</string>
     <string name="author">Author</string>
     <string name="analyze_date">Analyzed date</string>
     <string name="analyze_result">Analyze result</string>
-    <string name="delete">Delete</string>
+    <string name="delete">Hapus</string>
     <string name="username_title">Username</string>
     <string name="user_email_title">User email</string>
-    <string name="title_history_text">Your recent history</string>
+    <string name="title_history_text">Riwayat Anda baru-baru ini</string>
     <string name="going_to_setting">Going to setting</string>
     <string name="back_button">Back button</string>
-    <string name="setting">Setting</string>
-    <string name="edit_profile">Edit Profile</string>
-    <string name="notification">Notifications</string>
-    <string name="language">Language</string>
-    <string name="Logout">Logout</string>
+    <string name="setting">Pengaturan</string>
+    <string name="edit_profile">Edit Profil</string>
+    <string name="notification">Pemberitahuan</string>
+    <string name="language">Bahasa</string>
+    <string name="Logout">Keluar</string>
     <string name="banner_analyze_image">Banner analyzed image</string>
-    <string name="banner_analyze_title">Get to know\nabout your skin</string>
-    <string name="banner_analyze_text">Understand your skin type and isssues you are facing</string>
-    <string name="banner_click_text">Analyze your skin in just one click</string>
-    <string name="analyze">Analyze now!</string>
+    <string name="banner_analyze_title">Kenali lebih jauh\ntentang kulit Anda</string>
+    <string name="banner_analyze_text">Pahami jenis kulit Anda dan masalah yang Anda hadapi</string>
+    <string name="banner_click_text">Analisis kulit Anda hanya dengan satu klik</string>
+    <string name="analyze">Analisis sekarang!</string>
     <string name="preview_image">Preview image</string>
     <string name="take_picture">Take picture</string>
-    <string name="enabled_btn_analyze_text">Analyze</string>
-    <string name="disable_btn_analyze_text">Take your picture first</string>
+    <string name="enabled_btn_analyze_text">Menganalisa</string>
+    <string name="disable_btn_analyze_text">Ambil fotomu dulu</string>
     <string name="enabled_btn_login_text">Login</string>
-    <string name="disabled_btn_login_text">You have not completed the data</string>
-    <string name="enabled_button_register_text">Register</string>
-    <string name="disabled_button_register_text">You have not completed the data</string>
-    <string name="invalid_email">Invalid email</string>
+    <string name="disabled_btn_login_text">Anda belum melengkapi data</string>
+    <string name="enabled_button_register_text">Daftar</string>
+    <string name="disabled_button_register_text">Anda belum melengkapi data</string>
+    <string name="invalid_email">Email tidak valid</string>
     <string name="email">Email</string>
     <string name="username">Username</string>
-    <string name="password_error_length">The password cannot be less than 8 characters</string>
-    <string name="password">Password</string>
+    <string name="password_error_length">Kata sandi tidak boleh kurang dari 8 karakter</string>
+    <string name="password">Kata sandi</string>
     <string name="shutter_icon">Shutter icon</string>
-    <string name="analyze_text">The analyze result are not completely accurate. Make sure the image is clearly visible to increase the accuracy of identification.</string>
-    <string name="skin_condition_result">Skin condition analyze result</string>
-    <string name="skin_type_result">Skin type analyze result</string>
+    <string name="analyze_text">Hasil analisis tidak sepenuhnya akurat. Pastikan gambar terlihat jelas untuk meningkatkan akurasi identifikasi.</string>
+    <string name="skin_condition_result">Hasil analisis kondisi kulit</string>
+    <string name="skin_type_result">Hasil analisis jenis kulit</string>
     <string name="save">Save</string>
-    <string name="analyze_description">Based on our analysis, your current skin condition is %1$s, and your skin type falls under the category of %1$s. Understanding your skin is the first step to unlocking a personalized skincare routine that works just for you!</string>
-    <string name="btn_skincare_recommendation">Skincare recommendation</string>
-    <string name="iv_banner_skincare_recommendation">Banner skincare recommendation</string>
-    <string name="banner_skincare_text">We analyze your skins needs to recommend the most suitable products for you</string>
-    <string name="banner_skincare_recommend_text">Start your beauty plan!</string>
-    <string name="register">Register</string>
-    <string name="register_text">Dont have an account? Register</string>
+    <string name="analyze_description">Berdasarkan analisis kami, kondisi kulit Anda saat ini adalah %1$s, dan jenis kulit Anda termasuk dalam kategori %1$s. Memahami kulit Anda adalah langkah pertama untuk menemukan rutinitas perawatan kulit yang sesuai untuk Anda!</string>
+    <string name="btn_skincare_recommendation">Rekomendasi perawatan kulit</string>
+    <string name="iv_banner_skincare_recommendation">Rekomendasi perawatan kulit banner</string>
+    <string name="banner_skincare_text">Kami menganalisis kebutuhan kulit Anda untuk merekomendasikan produk yang paling cocok untuk Anda</string>
+    <string name="banner_skincare_recommend_text">Mulai rencana kecantikan Anda!</string>
+    <string name="register">Daftar</string>
+    <string name="register_text">Belum punya akun? Daftar</string>
     <string name="login_title">Hi Kinnies</string>
-    <string name="login_description">Login to your account</string>
-    <string name="register_title">Register</string>
-    <string name="register_description">Create your account</string>
+    <string name="login_description">Masuk ke akun Anda</string>
+    <string name="register_title">Daftar</string>
+    <string name="register_description">Buat akun Anda</string>
     <string name="login">Login</string>
-    <string name="login_text">Already have an account? Login</string>
-    <string name="welcome">Welcome to urkins,</string>
-    <string name="banner_home_title">These are your recent recommendation skincare</string>
-    <string name="banner_home_text">more...</string>
-    <string name="banner_article_titile">Get to know about skin</string>
-    <string name="banner_article_text">Reveal the true beauty of who you are</string>
-    <string name="recommend_skincare_text">Suggested products based on your current skin issues</string>
+    <string name="login_text">Sudah punya akun? Masuk</string>
+    <string name="welcome">Selamat datang di urkins,</string>
+    <string name="banner_home_title">Ini adalah rekomendasi perawatan kulit terbaru Anda</string>
+    <string name="banner_home_text">lagi...</string>
+    <string name="banner_article_titile">Kenali lebih jauh tentang kulit</string>
+    <string name="banner_article_text">Ungkapkan keindahan sejati siapa dirimu</string>
+    <string name="recommend_skincare_text">Produk yang disarankan berdasarkan masalah kulit Anda saat ini</string>
     <string name="product_name">Product name</string>
-    <string name="title_product_description">Description</string>
+    <string name="title_product_description">Keterangan</string>
     <string name="product_desription">Product desription</string>
-    <string name="title_how_to_use">How To Use</string>
-    <string name="how_to_use_text">Step of using the product</string>
-    <string name="title_product_ingredient">Ingredients</string>
-    <string name="product_ingredient_text">will be the ingredients</string>
-    <string name="camera_title">Camera</string>
-    <string name="failed_take_photo">failed take photo</string>
-    <string name="photo_picker_title">pick photo</string>
-    <string name="acces_granted">acces granted</string>
-    <string name="acces_denied">acces denied</string>
-    <string name="failed_start_camera">failed start camera</string>
+    <string name="title_how_to_use">Cara Penggunaan</string>
+    <string name="how_to_use_text">Langkah penggunaan produk</string>
+    <string name="title_product_ingredient">Bahan-bahan</string>
+    <string name="product_ingredient_text">akan menjadi bahan-bahannya</string>
+    <string name="camera_title">Kamera</string>
+    <string name="failed_take_photo">gagal mengambil foto</string>
+    <string name="photo_picker_title">pilih foto</string>
+    <string name="acces_granted">akses diberikan</string>
+    <string name="acces_denied">Akses ditolak</string>
+    <string name="failed_start_camera">kamera gagal mulai</string>
     <string name="notification_title">Hi Kinnies!</string>
-    <string name="notification_message">How\'s your skin journey been going? Notice any changes? Let’s dive in and analyze those transformations together!</string>
-    <string name="notification_subtext">Let\'s analyze your transformation</string>
-    <string name="notifications_permission_granted">Notifications permission granted</string>
-    <string name="notifications_permission_rejected">Notifications permission rejected</string>
-    <string name="notification_enabled">Enabled</string>
-    <string name="notification_disabled">Disabled</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="notification_disabled_dialog_text">Are you sure you want to disable notifications?</string>
-    <string name="notifications_disable_title_dialog">Disable Notifications</string>
-    <string name="register_succes">Register Succes</string>
-    <string name="register_error">Register Error</string>
+    <string name="notification_message">Bagaimana perjalanan kulit Anda? Apakah Anda merasakan adanya perubahan? Mari kita bahas dan analisis transformasi tersebut bersama-sama!</string>
+    <string name="notification_subtext">Mari kita menganalisis transformasi Anda</string>
+    <string name="notifications_permission_granted">Izin notifikasi diberikan</string>
+    <string name="notifications_permission_rejected">Izin notifikasi ditolak</string>
+    <string name="notification_enabled">Diaktifkan</string>
+    <string name="notification_disabled">Tidak Diaktifkan</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="notification_disabled_dialog_text">Apakah Anda yakin ingin menonaktifkan notifikasi?</string>
+    <string name="notifications_disable_title_dialog">Nonaktifkan Notifikasi</string>
+    <string name="register_succes">Daftar Sukses</string>
+    <string name="register_error">Daftar Kesalahan</string>
     <string name="register_error_with_error_messege">"Register Error "</string>
-    <string name="confirmation">Confirm</string>
-    <string name="confirmationno">noooooo</string>
-    <string name="login_succes_dialog">Login Succes</string>
-    <string name="login_error_messege">Erorr in Login</string>
-    <string name="login_failed_dialog">failed login</string>
-    <string name="register_failed_dialog">Register failed</string>
-    <string name="no_image_selected">no image selected</string>
-    <string name="product_category">Category of product</string>
-    <string name="title_product_category">Category</string>
+    <string name="confirmation">Konfirmasi</string>
+    <string name="confirmationno">Tidak</string>
+    <string name="login_succes_dialog">Login Sukses</string>
+    <string name="login_error_messege">Erorr di login</string>
+    <string name="login_failed_dialog">gagal login</string>
+    <string name="register_failed_dialog">Register gagal</string>
+    <string name="no_image_selected">tidak ada foto yang dipilih</string>
+    <string name="product_category">kategori produk</string>
+    <string name="title_product_category">Kategori</string>
     <string name="iv_skincare_home_guest_img">Home\'s guest image</string>
-    <string name="title_guest_text">Your recent skincare recommendation will appear here. Let\'s analyze your skin first and start your journey to healthier skin</string>
-    <string name="title_welcome_user">UrKins\nPersonalized Skincare\nRekommendation Application</string>
-    <string name="description_welcome_user">UrKins empowers you to care for your skin \nwith AI-powered analysis, personalized \nproduct suggestions, and clear guidance \non skincare ingredients. Unlock the path \nto radiant, healthy skin designed just for you.</string>
-    <string name="register_info">By registering, you are  agreeing to our \nTerm of use and Privacy policy</string>
-    <string name="logout_title">Logout</string>
-    <string name="logout_confirmation">Are You Sure You Want To Logout?</string>
-    <string name="empty_image">There Is No Image</string>
+    <string name="title_guest_text">Rekomendasi perawatan kulit terbaru Anda akan muncul di sini.. Mari kita menganalisis kulit Anda terlebih dahulu dan memulai perjalanan Anda menuju kulit yang lebih sehat</string>
+    <string name="title_welcome_user">UrKins\nPerawatan Kulit Pribadi\nAplikasi Rekomendasi</string>
+    <string name="description_welcome_user">UrKins memberdayakan Anda untuk merawat kulit Anda \ndengan analisis bertenaga AI, personalisasi \nsaran produk, dan panduan yang jelas \npada bahan-bahan perawatan kulit. Buka jalan \nuntuk kulit bercahaya dan sehat yang dirancang khusus untuk Anda.</string>
+    <string name="register_info">Dengan mendaftar, Anda menyetujui ketentuan kami \nKetentuan Penggunaan dan Kebijakan Privasi</string>
+    <string name="logout_title">Keluar</string>
+    <string name="logout_confirmation">Yakin Ingin Keluar?</string>
+    <string name="empty_image">Tidak ada Foto</string>
 
 
     <string-array name="data_article_title">
-        <item>The Most Common Causes of Red Face</item>
-        <item>How to Care for Facial Skin Properly and Correctly</item>
-        <item>Get to Know Your Facial Skin Types and How to Care for Them Here!</item>
-        <item>Here are the differences between physical, chemical and hybrid sunscreens</item>
-        <item>How to Care for Sensitive and Oily Facial Skin</item>
-        <item>5 Skin Diseases That Adults Need to Be Aware of</item>
-        <item>Take Advantage of Morning Sunlight for Healthy Skin</item>
-        <item>Learn How to Get Rid of Acne and Its Scars</item>
-        <item>Vitamins for Dry Skin Worth Considering</item>
-        <item>How to Care for Skin Based on Its Type</item>
-        <item>How to Whiten Skin and the Risks That Accompany It</item>
-        <item>These Are the Benefits of Olive Oil for Acne-Prone Skin</item>
+        <item>Penyebab Muka Merah yang Paling Sering Terjadi</item>
+        <item>Cara Merawat Kulit Wajah yang Baik dan Benar</item>
+        <item>Kenali Jenis Kulit Wajah dan Cara Merawatnya di Sini!</item>
+        <item>Ini lho Perbedaan Physical, Chemical, dan Hybrid Sunscreen</item>
+        <item>Cara Merawat Kulit Wajah Sensitif dan Berminyak</item>
+        <item>5 Penyakit Kulit yang Perlu Diwaspadai Orang Dewasa</item>
+        <item>Manfaatkan Berjemur Sinar Matahari Pagi demi Kesehatan Kulit</item>
+        <item>Ketahui Cara Menghilangkan Jerawat dan Bekasnya</item>
+        <item>Vitamin untuk Kulit Kering yang Patut Disimak</item>
+        <item>Cara Merawat Kulit Berdasarkan Jenisnya</item>
+        <item>Cara Memutihkan Kulit dan Risiko yang Menyertainya</item>
+        <item>Ini Manfaat Minyak Zaitun untuk Wajah Berjerawat</item>
     </string-array>
 
     <string-array name="data_article_date">
