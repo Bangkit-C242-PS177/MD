@@ -162,6 +162,21 @@
         <item>dr. Kevin Adrian</item>
     </string-array>
 
+    <string-array name="data_article_link">
+        <item>https://www.alodokter.com/penyebab-muka-merah-yang-paling-sering-terjadi</item>
+        <item>https://www.alodokter.com/cara-merawat-kulit-wajah-yang-baik-dan-benar</item>
+        <item>https://www.alodokter.com/kenali-jenis-kulit-wajah-dan-cara-merawatnya-di-sini</item>
+        <item>https://www.alodokter.com/ini-lho-perbedaan-physical-chemical-dan-hybrid-sunscreen</item>
+        <item>https://www.alodokter.com/ini-cara-merawat-kulit-wajah-kering-berminyak-dan-sensitif</item>
+        <item>https://www.alodokter.com/5-penyakit-kulit-yang-umum-diderita-orang-dewasa</item>
+        <item>https://www.alodokter.com/manfaatkan-berjemur-sinar-matahari-pagi-demi-kesehatan-kulit</item>
+        <item>https://www.alodokter.com/ketahui-cara-menghilangkan-jerawat-dan-bekasnya</item>
+        <item>https://www.alodokter.com/vitamin-untuk-kulit-kering-yang-patut-disimak</item>
+        <item>https://www.alodokter.com/kulit-cermin-kesehatan-tubuh</item>
+        <item>https://www.alodokter.com/cara-memutihkan-kulit-dan-risiko-yang-menyertainya</item>
+        <item>https://www.alodokter.com/ini-manfaat-minyak-zaitun-untuk-wajah-berjerawat</item>
+    </string-array>
+
     <string-array name="data_article_photo">
         <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1603680473/attached_image/penyebab-muka-merah-yang-paling-sering-terjadi-0-alodokter.jpg</item>
         <item>https://res.cloudinary.com/dk0z4ums3/image/upload/v1589190183/attached_image/cara-merawat-kulit-wajah-yang-baik-dan-benar-0-alodokter.jpg</item>

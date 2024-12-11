@@ -1,6 +1,7 @@
 package com.example.urkins.ui.main.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -79,10 +80,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
+        val dataLinks = resources.getStringArray(R.array.data_article_link)
         binding.rvArticle.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = ArticlesAdapter(getListArticles())
+            adapter = ArticlesAdapter(getListArticles(), dataLinks)
         }
         binding.progressBar.visibility = View.GONE
     }
@@ -124,6 +126,7 @@ class HomeFragment : Fragment() {
         binding.tvBannerHomeText.setOnClickListener {
             startActivity(Intent(context, SkincareRecommendationActivity::class.java))
         }
+        binding.tvUsername.text="Kinnies"
     }
 
     override fun onDestroyView() {

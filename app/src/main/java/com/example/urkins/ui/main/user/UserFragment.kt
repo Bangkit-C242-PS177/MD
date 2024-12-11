@@ -90,6 +90,8 @@ class UserFragment : Fragment() {
             historyViewModel.deleteHistory(analizeResult)
         }
 
+        binding.tvUserName.text="Hi,\nKinnies!"
+
         historyViewModel.getHistory().observe(viewLifecycleOwner) { history ->
             binding.progressBar.visibility = View.GONE
             val detail = arrayListOf<HistoryEntity>()
@@ -164,8 +166,8 @@ class UserFragment : Fragment() {
 
     private fun setupAction() {
         binding.btnGoingToSetting.setOnClickListener {
-            val intentMaps = Intent(requireActivity(), SettingActivity::class.java)
-            startActivity(intentMaps)
+            val intent = Intent(requireActivity(), SettingActivity::class.java)
+            startActivityForResult(intent, REQUEST_CODE_PICK_IMAGE)
         }
         binding.btnRegisterWelcomeUser.setOnClickListener {
             val intent = Intent(requireActivity(), RegisterActivity::class.java)
@@ -185,11 +187,12 @@ class UserFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            val uri: Uri? = data?.getStringExtra("image_uri")?.let { Uri.parse(it) }
-            Log.d("UserFragment", "Received URI: $uri")
-            uri?.let {
-                binding.civProfileImage.setImageURI(it)
-                saveImageToPreferences(it)
+            val uriString = data?.getStringExtra("image_uri")
+            uriString?.let {
+                val uri = Uri.parse(it)
+                binding.civProfileImage.setImageURI(uri)
+                saveImageToPreferences(uri) // Simpan URI ke SharedPreferences jika perlu
+                Log.d("UserFragment", "Received URI: $uri")
             }
         }
     }
@@ -228,7 +231,7 @@ class UserFragment : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Izin diberikan, lakukan tindakan yang memerlukan izin
+                // Izin diberikan, lanjutkan untuk mengakses gambar
             } else {
                 // Izin ditolak, tampilkan pesan kepada pengguna
             }

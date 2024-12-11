@@ -31,6 +31,8 @@ class ResultActivity : AppCompatActivity() {
             insets
         }
 
+        supportActionBar?.hide()
+
         val result : ResultViewModelFactory = ResultViewModelFactory.getInstance(application)
         resultViewModel = ViewModelProvider(this, result)[ResultViewModel::class.java]
 

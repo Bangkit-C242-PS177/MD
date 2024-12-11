@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -66,8 +66,8 @@
                     android:layout_width="203dp"
                     android:layout_height="58dp"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/afacad"
-                    android:padding="5dp"
+                    android:fontFamily="@font/aclonica"
+                    android:padding="10dp"
                     android:text="@string/skin_condition_result"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -82,8 +82,8 @@
                     android:layout_width="184dp"
                     android:layout_height="58dp"
                     android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/afacad"
-                    android:padding="5dp"
+                    android:fontFamily="@font/aclonica"
+                    android:padding="10dp"
                     android:text="@string/skin_type_result"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -131,7 +131,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="1dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/afacad"
                 android:text="@string/btn_skincare_recommendation"
                 android:textColor="@android:color/primary_text_light"
@@ -143,9 +143,10 @@
                 app:iconTint="@android:color/primary_text_light"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_banner_skincare_text_recommend"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/tv_banner_skincare_text_recommend"
                 app:layout_constraintTop_toBottomOf="@+id/tv_banner_skincare_text_recommend"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="VisualLintButtonSize" />
 
             <ImageView
@@ -182,16 +183,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
+                android:layout_marginBottom="68dp"
                 android:fontFamily="@font/afacad"
                 android:text="@string/banner_skincare_recommend_text"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_banner_skincare_text"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/tv_banner_skincare_text"
-                tools:ignore="MissingConstraints,TextContrastCheck"
-                tools:layout_editor_absoluteY="106dp" />
+                tools:ignore="MissingConstraints,TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
@@ -217,4 +219,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
