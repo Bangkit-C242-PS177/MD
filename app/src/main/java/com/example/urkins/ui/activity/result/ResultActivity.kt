@@ -1,5 +1,6 @@
 package com.example.urkins.ui.activity.result
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
@@ -13,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.urkins.R
 import com.example.urkins.databinding.ActivityResultBinding
+import com.example.urkins.ui.activity.recommendskincare.SkincareRecommendationActivity
 import com.google.android.material.snackbar.Snackbar
 
 class ResultActivity : AppCompatActivity() {
@@ -45,6 +47,16 @@ class ResultActivity : AppCompatActivity() {
         binding.ivResultImage.setImageURI(imageUri)
         binding.resultSkinConditionText.text = prediction
         binding.resultSkinTypeText.text = prediction2
+
+        binding.btnSkincareRecommendation.setOnClickListener {
+            if (imageUri != null && prediction != null && prediction2 != null) {
+                resultViewModel.saveHistory(imageUri, prediction, prediction2)
+            } else {
+                Snackbar.make(window.decorView.rootView, "History Not Saved", Snackbar.LENGTH_SHORT).show()
+            }
+            val intent = Intent(this, SkincareRecommendationActivity::class.java)
+            startActivity(intent)
+        }
 
 //        val skinConditions = intent.getSerializableExtra("skin_conditions") as ArrayList<List<String>>
 //        val skinType = intent.getSerializableExtra("skin_type") as ArrayList<List<String>>
