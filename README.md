@@ -2,7 +2,7 @@
 
 🎨 Mobile Development member repository to design and build UI/UX Application for our Urkins Project
 
-# This coffee bean scanning app is designed to identify the quality of coffee beans. This will help determine whether the coffee beans are of good quality or not.
+# This Urkins App
 
 - Login user
   <div>
