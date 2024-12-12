@@ -1,4 +1,4 @@
-# 📱 Mobile Development C242-PS177 📱
+# 📱 Mobile Development C242-PS177 For Capstone Project "Urkins"📱
 
 🎨 Mobile Development member repository to design and build UI/UX Application for our Urkins Project
 
